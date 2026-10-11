@@ -1,0 +1,1896 @@
+
+/* =========================================
+   GO TRIP — DESTINATION DETAILS
+   Premium responsive design
+========================================= */
+
+:root {
+    --primary: #147d64;
+    --primary-dark: #0d5c49;
+    --primary-light: #e8f5ef;
+    --accent: #f2a65a;
+    --heading: #17332c;
+    --text: #64716c;
+    --background: #f7f9f7;
+    --white: #ffffff;
+    --border: #e5ebe7;
+    --shadow: 0 16px 45px rgba(24, 57, 45, 0.09);
+    --radius: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--text);
+    background: var(--background);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+body,
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.page-container,
+.nav-container {
+    width: min(1180px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+/* HEADER */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(229, 235, 231, 0.8);
+    backdrop-filter: blur(14px);
+}
+
+.nav-container {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.brand {
+    color: var(--heading);
+    font-family: "Playfair Display", serif;
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.brand span {
+    color: var(--primary);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.main-nav a,
+.my-bookings-link {
+    color: #465b53;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover,
+.my-bookings-link:hover {
+    color: var(--primary);
+}
+
+.my-bookings-link {
+    padding: 11px 17px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb-section {
+    padding: 24px 0 16px;
+    font-size: 13px;
+}
+
+.breadcrumb-section .page-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.breadcrumb-section a {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.breadcrumb-section span:last-child {
+    color: #84918a;
+}
+
+/* BUTTONS */
+
+.primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 13px 21px;
+    color: white;
+    background: var(--primary);
+    border: 0;
+    border-radius: 12px;
+    font-weight: 700;
+    text-align: center;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(20, 125, 100, 0.2);
+}
+
+.primary-btn:focus-visible,
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+    outline: 3px solid rgba(20, 125, 100, 0.35);
+    outline-offset: 4px;
+}
+
+/* LOADING AND ERROR */
+
+.loading-state,
+.error-state {
+    width: min(650px, calc(100% - 40px));
+    min-height: 330px;
+    margin: 45px auto;
+    padding: 45px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.loader {
+    width: 44px;
+    height: 44px;
+    border: 4px solid #dcebe5;
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #b45b38;
+    background: #fff0e8;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.error-state h1 {
+    color: var(--heading);
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+}
+
+/* DESTINATION HERO */
+
+.destination-hero {
+    padding: 12px 0 35px;
+}
+
+.hero-image-wrap {
+    position: relative;
+    height: clamp(300px, 43vw, 485px);
+    overflow: hidden;
+    border-radius: 25px;
+    background: #dce7e1;
+    isolation: isolate;
+}
+
+.hero-image-wrap > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.hero-image-wrap:hover > img {
+    transform: scale(1.025);
+}
+
+.hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        180deg,
+        rgba(5, 23, 17, 0.05) 20%,
+        rgba(5, 23, 17, 0.68) 100%
+    );
+    pointer-events: none;
+}
+
+.hero-image-caption {
+    position: absolute;
+    z-index: 2;
+    left: clamp(22px, 5vw, 55px);
+    bottom: 35px;
+    max-width: 600px;
+    color: white;
+}
+
+.eyebrow,
+.section-kicker,
+.sidebar-kicker {
+    display: block;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-image-caption .eyebrow {
+    color: #c8f3dc;
+}
+
+.hero-image-caption p {
+    margin-top: 9px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.share-btn {
+    position: absolute;
+    z-index: 3;
+    top: 20px;
+    right: 20px;
+    padding: 11px 17px;
+    color: var(--heading);
+    background: rgba(255, 255, 255, 0.95);
+    border: 0;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.share-btn:hover {
+    background: white;
+}
+
+.hero-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 310px;
+    align-items: center;
+    gap: 45px;
+    padding: 34px 4px 5px;
+}
+
+.location-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hero-main-info h1 {
+    margin: 9px 0 10px;
+    color: var(--heading);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(34px, 4.5vw, 53px);
+    line-height: 1.13;
+    letter-spacing: -1.3px;
+}
+
+.hero-description {
+    max-width: 720px;
+    font-size: 15px;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #52645b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.meta-item > span:first-child {
+    color: var(--primary);
+    font-size: 17px;
+}
+
+.meta-divider {
+    width: 1px;
+    height: 19px;
+    background: var(--border);
+}
+
+/* PRICE CARD */
+
+.price-card {
+    padding: 25px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    box-shadow: var(--shadow);
+}
+
+.price-label {
+    color: #839087;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.price-line {
+    margin: 8px 0 3px;
+    color: var(--heading);
+    font-size: 29px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.price-note,
+.booking-note {
+    display: block;
+    color: #839087;
+    font-size: 11px;
+}
+
+.book-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.booking-note {
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* MAIN LAYOUT */
+
+.destination-body {
+    padding: 20px 0 90px;
+}
+
+.destination-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 285px;
+    align-items: start;
+    gap: 38px;
+}
+
+.destination-main-column {
+    min-width: 0;
+}
+
+.content-section {
+    margin-bottom: 55px;
+    scroll-margin-top: 100px;
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-kicker {
+    margin-bottom: 9px;
+}
+
+.section-heading h2 {
+    color: var(--heading);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(27px, 3vw, 36px);
+    line-height: 1.25;
+    letter-spacing: -0.6px;
+}
+
+.body-copy {
+    max-width: 790px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* HIGHLIGHTS */
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 26px;
+}
+
+.highlight-card {
+    padding: 23px 19px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.highlight-icon {
+    display: inline-grid;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 15px;
+    place-items: center;
+    background: var(--primary-light);
+    border-radius: 13px;
+    font-size: 21px;
+}
+
+.highlight-card h3 {
+    margin-bottom: 8px;
+    color: var(--heading);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.highlight-card p {
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 190px;
+    gap: 14px;
+}
+
+.gallery-item {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #e4ebe6;
+}
+
+.gallery-item:first-child {
+    grid-row: span 2;
+    min-height: 394px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item figcaption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 35px 17px 15px;
+    color: white;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.gallery-placeholder {
+    grid-column: 1 / -1;
+    display: grid;
+    min-height: 160px;
+    padding: 25px;
+    place-items: center;
+    color: #728178;
+    background: white;
+    border: 1px dashed #cbd8d0;
+    border-radius: 16px;
+    text-align: center;
+}
+
+/* ITINERARY */
+
+.itinerary-list {
+    display: grid;
+    gap: 17px;
+}
+
+.itinerary-item {
+    display: grid;
+    grid-template-columns: 53px minmax(0, 1fr);
+    align-items: start;
+    gap: 15px;
+}
+
+.day-marker {
+    display: flex;
+    justify-content: center;
+    padding-top: 19px;
+}
+
+.day-marker span {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    color: white;
+    background: var(--primary);
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: 0 6px 15px rgba(20, 125, 100, 0.17);
+}
+
+.itinerary-card {
+    padding: 21px 23px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.itinerary-card h3 {
+    margin-bottom: 7px;
+    color: var(--heading);
+    font-size: 16px;
+}
+
+.itinerary-card p {
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.itinerary-card ul {
+    margin: 12px 0 0 18px;
+    font-size: 13px;
+}
+
+.itinerary-card li {
+    margin-bottom: 5px;
+}
+
+.disclaimer-text {
+    margin-top: 17px;
+    color: #7c8981;
+    font-size: 12px;
+}
+
+/* PACKAGE DETAILS */
+
+.package-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.package-info-card {
+    padding: 24px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.package-card-title {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 18px;
+}
+
+.package-card-title h3 {
+    color: var(--heading);
+    font-size: 15px;
+}
+
+.info-icon {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 11px;
+    font-weight: 800;
+}
+
+.included-icon {
+    color: #177657;
+    background: #e7f6ee;
+}
+
+.excluded-icon {
+    color: #b76547;
+    background: #fff0e8;
+}
+
+.package-info-card ul {
+    display: grid;
+    gap: 12px;
+    list-style: none;
+}
+
+.package-info-card li {
+    position: relative;
+    padding-left: 21px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.package-info-card li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary);
+    content: "✓";
+    font-weight: 800;
+}
+
+.package-info-card:nth-child(2) li::before {
+    color: #bd7859;
+    content: "–";
+}
+
+.important-note {
+    margin-top: 18px;
+    padding: 17px 20px;
+    color: #665c42;
+    background: #fff8e9;
+    border: 1px solid #f3e7c8;
+    border-radius: 13px;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.important-note strong {
+    color: #8a6c24;
+}
+
+/* TRAVEL INFO */
+
+.travel-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.travel-info-card {
+    padding: 23px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.travel-info-icon {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 25px;
+}
+
+.travel-info-card h3 {
+    margin-bottom: 7px;
+    color: var(--heading);
+    font-size: 14px;
+}
+
+.travel-info-card p {
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* FAQ */
+
+.faq-list {
+    display: grid;
+    gap: 12px;
+}
+
+.faq-item {
+    padding: 18px 21px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.faq-item summary {
+    position: relative;
+    padding-right: 25px;
+    color: var(--heading);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    color: var(--primary);
+    content: "+";
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item p {
+    padding-top: 13px;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* SIDEBAR */
+
+.destination-sidebar {
+    position: sticky;
+    top: 105px;
+    display: grid;
+    gap: 19px;
+}
+
+.sidebar-card {
+    padding: 23px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.sidebar-card h3 {
+    margin-bottom: 15px;
+    color: var(--heading);
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    line-height: 1.35;
+}
+
+.quick-nav-card {
+    display: grid;
+    gap: 0;
+}
+
+.quick-nav-card h3 {
+    margin-bottom: 13px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+}
+
+.quick-nav-card a {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 13px 0;
+    border-bottom: 1px solid #edf0ed;
+    font-size: 12px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.quick-nav-card a:last-child {
+    border-bottom: 0;
+}
+
+.quick-nav-card a span {
+    color: var(--primary);
+}
+
+.quick-nav-card a:hover {
+    color: var(--primary);
+}
+
+.booking-sidebar-card {
+    background: linear-gradient(145deg, #eff9f3, #ffffff);
+    border-color: #dceee4;
+}
+
+.booking-sidebar-card .sidebar-kicker {
+    margin-bottom: 12px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.booking-sidebar-card h3 {
+    margin-bottom: 10px;
+}
+
+.booking-sidebar-card p {
+    margin-bottom: 17px;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.sidebar-book-btn {
+    width: 100%;
+    padding-inline: 10px;
+    font-size: 13px;
+}
+
+.back-to-tours {
+    display: block;
+    margin-top: 17px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* FOOTER */
+
+.site-footer {
+    color: #d2ded7;
+    background: #142c24;
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 35px;
+    padding-top: 48px;
+    padding-bottom: 38px;
+}
+
+.footer-brand {
+    color: white;
+}
+
+.footer-content > div:first-child p {
+    max-width: 340px;
+    margin-top: 12px;
+    color: #a9bbb0;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #d2ded7;
+    font-size: 12px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding: 17px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #9eb0a5;
+    font-size: 11px;
+}
+
+/* TOAST */
+
+.destination-toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 300;
+    max-width: min(390px, calc(100% - 32px));
+    padding: 15px 20px;
+    color: white;
+    background: #183b30;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 13px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    font-size: 13px;
+}
+
+/* RESPONSIVE: TABLET */
+
+@media (max-width: 1000px) {
+    .main-nav {
+        gap: 17px;
+    }
+
+    .hero-details {
+        grid-template-columns: minmax(0, 1fr) 270px;
+        gap: 25px;
+    }
+
+    .destination-layout {
+        grid-template-columns: minmax(0, 1fr) 245px;
+        gap: 24px;
+    }
+
+    .sidebar-card {
+        padding: 19px;
+    }
+
+    .highlight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* RESPONSIVE: MOBILE NAV */
+
+@media (max-width: 760px) {
+    .page-container,
+    .nav-container {
+        width: min(100% - 32px, 600px);
+    }
+
+    .nav-container {
+        min-height: 70px;
+        gap: 12px;
+    }
+
+    .brand {
+        font-size: 25px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .my-bookings-link {
+        padding: 9px 11px;
+        font-size: 11px;
+    }
+
+    .breadcrumb-section {
+        padding-top: 19px;
+        font-size: 12px;
+    }
+
+    .destination-hero {
+        padding-top: 5px;
+    }
+
+    .hero-image-wrap {
+        height: 330px;
+        border-radius: 19px;
+    }
+
+    .hero-image-caption {
+        right: 20px;
+        bottom: 23px;
+        left: 20px;
+    }
+
+    .hero-image-caption p {
+        font-size: 27px;
+    }
+
+    .share-btn {
+        top: 13px;
+        right: 13px;
+        padding: 9px 12px;
+    }
+
+    .hero-details {
+        grid-template-columns: 1fr;
+        gap: 23px;
+        padding-top: 25px;
+    }
+
+    .hero-main-info h1 {
+        font-size: 38px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-meta {
+        gap: 12px;
+    }
+
+    .meta-item {
+        font-size: 11px;
+    }
+
+    .price-card {
+        padding: 21px;
+    }
+
+    .price-line {
+        font-size: 27px;
+    }
+
+    .destination-body {
+        padding-top: 15px;
+        padding-bottom: 55px;
+    }
+
+    .destination-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .destination-sidebar {
+        position: static;
+        grid-row: 1;
+        margin-bottom: 30px;
+    }
+
+    .quick-nav-card {
+        display: none;
+    }
+
+    .booking-sidebar-card {
+        display: none;
+    }
+
+    .content-section {
+        margin-bottom: 43px;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    .body-copy {
+        font-size: 14px;
+    }
+
+    .highlight-grid {
+        gap: 11px;
+    }
+
+    .highlight-card {
+        padding: 17px 14px;
+    }
+
+    .highlight-card h3 {
+        font-size: 13px;
+    }
+
+    .gallery-grid {
+        grid-auto-rows: 145px;
+        gap: 10px;
+    }
+
+    .gallery-item:first-child {
+        min-height: 300px;
+    }
+
+    .itinerary-item {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .day-marker span {
+        width: 37px;
+        height: 37px;
+        border-radius: 12px;
+    }
+
+    .itinerary-card {
+        padding: 17px;
+    }
+
+    .package-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .package-info-card {
+        padding: 20px;
+    }
+
+    .travel-info-grid {
+        gap: 11px;
+    }
+
+    .travel-info-card {
+        padding: 17px;
+    }
+
+    .faq-item {
+        padding: 16px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+        padding-top: 37px;
+    }
+
+    .footer-links {
+        gap: 14px 20px;
+    }
+
+    .destination-toast {
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
+/* RESPONSIVE: SMALL MOBILE */
+
+@media (max-width: 420px) {
+    .page-container,
+    .nav-container {
+        width: calc(100% - 26px);
+    }
+
+    .hero-image-wrap {
+        height: 280px;
+    }
+
+    .hero-main-info h1 {
+        font-size: 33px;
+    }
+
+    .hero-meta {
+        align-items: flex-start;
+    }
+
+    .meta-divider {
+        display: none;
+    }
+
+    .highlight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-card {
+        display: grid;
+        grid-template-columns: 43px 1fr;
+        column-gap: 13px;
+        align-items: center;
+    }
+
+    .highlight-icon {
+        grid-row: span 2;
+        margin-bottom: 0;
+    }
+
+    .highlight-card h3 {
+        margin-bottom: 2px;
+    }
+
+    .highlight-card p {
+        grid-column: 2;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 120px;
+    }
+
+    .gallery-item:first-child {
+        min-height: 250px;
+    }
+
+    .travel-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   GO TRIP — PREMIUM DESTINATION DETAILS
+   Responsive design and photo-led sections
+========================================= */
+
+:root {
+  --primary: #117c68;
+  --primary-dark: #0b5b4b;
+  --primary-light: #e7f5ef;
+  --accent: #e8aa62;
+  --heading: #172f29;
+  --text: #5f6f68;
+  --background: #f7f8f6;
+  --border: #e4e9e4;
+  --shadow: 0 18px 55px rgba(20, 49, 39, 0.09);
+  --radius: 22px;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 12% 0%, #eef7f0 0, transparent 32%),
+    var(--background);
+}
+
+.site-header {
+  box-shadow: 0 5px 30px rgba(23, 47, 41, 0.035);
+}
+
+.brand {
+  letter-spacing: -1.2px;
+}
+
+.main-nav a {
+  position: relative;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 2px;
+  background: var(--primary);
+  transition: right 0.22s ease;
+}
+
+.main-nav a:hover::after {
+  right: 0;
+}
+
+.breadcrumb-section {
+  padding-top: 26px;
+}
+
+.destination-hero {
+  padding-top: 10px;
+}
+
+.hero-image-wrap {
+  height: clamp(340px, 48vw, 570px);
+  border-radius: 30px;
+  box-shadow: 0 22px 65px rgba(16, 42, 32, 0.13);
+}
+
+.hero-image-wrap > img {
+  filter: saturate(1.04);
+}
+
+.hero-image-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 24, 19, 0.03) 15%,
+    rgba(5, 23, 17, 0.12) 44%,
+    rgba(5, 23, 17, 0.78) 100%
+  );
+}
+
+.hero-image-caption {
+  max-width: 760px;
+  bottom: clamp(25px, 5vw, 56px);
+}
+
+.hero-image-caption .eyebrow {
+  display: inline-flex;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #e1ffed;
+  backdrop-filter: blur(8px);
+}
+
+.hero-image-caption p {
+  font-size: clamp(26px, 4.5vw, 48px);
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.2);
+}
+
+.share-btn {
+  border-radius: 999px;
+  padding: 12px 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hero-details {
+  padding-top: 40px;
+  gap: clamp(25px, 4vw, 56px);
+}
+
+.location-label {
+  letter-spacing: 0.2px;
+}
+
+.hero-main-info h1 {
+  font-size: clamp(38px, 5vw, 60px);
+  letter-spacing: -1.8px;
+}
+
+.hero-description {
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.hero-meta {
+  gap: 12px;
+}
+
+.meta-item {
+  padding: 9px 12px;
+  border: 1px solid #e5ece7;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+}
+
+.price-card {
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 20px 55px rgba(24, 57, 45, 0.1);
+}
+
+.price-line {
+  font-size: 32px;
+  letter-spacing: -0.7px;
+}
+
+.book-btn {
+  min-height: 54px;
+  border-radius: 14px;
+  box-shadow: 0 9px 22px rgba(20, 125, 100, 0.16);
+}
+
+.destination-body {
+  padding-top: 35px;
+}
+
+.destination-layout {
+  gap: 42px;
+}
+
+.content-section {
+  margin-bottom: 68px;
+}
+
+.section-heading {
+  margin-bottom: 27px;
+}
+
+.section-kicker {
+  letter-spacing: 2.3px;
+}
+
+.section-heading h2 {
+  font-size: clamp(29px, 3.2vw, 40px);
+  letter-spacing: -0.8px;
+}
+
+.body-copy {
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+/* Photo-led activity cards */
+
+.highlight-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.experience-card {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e6ebe7;
+  border-radius: 21px;
+  box-shadow: 0 8px 25px rgba(20, 49, 39, 0.035);
+  background: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(20, 49, 39, 0.1);
+}
+
+.experience-image-wrap {
+  height: 185px;
+  overflow: hidden;
+  background: #e5eee8;
+}
+
+.experience-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.experience-card:hover .experience-image-wrap img {
+  transform: scale(1.055);
+}
+
+.experience-copy {
+  padding: 20px 21px 23px;
+}
+
+.experience-copy .highlight-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.experience-copy h3 {
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+
+.experience-copy p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Editorial-style photo gallery */
+
+.gallery-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 175px;
+  gap: 13px;
+}
+
+.gallery-item {
+  border-radius: 18px;
+  cursor: zoom-in;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(20, 49, 39, 0.045);
+}
+
+.gallery-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+  min-height: 360px;
+}
+
+.gallery-item:nth-child(4n + 2) {
+  grid-column: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-item figcaption {
+  padding: 42px 15px 15px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.gallery-item:hover figcaption {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
+}
+
+.gallery-item img:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -4px;
+}
+
+/* Photo-based itinerary */
+
+.itinerary-list {
+  gap: 19px;
+}
+
+.itinerary-item {
+  grid-template-columns: 55px minmax(0, 1fr);
+  gap: 15px;
+}
+
+.day-marker {
+  position: relative;
+  justify-content: center;
+}
+
+.day-marker::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 60px;
+  bottom: -28px;
+  left: 50%;
+  width: 1px;
+  background: #d8e6dd;
+}
+
+.itinerary-item:last-child .day-marker::after {
+  display: none;
+}
+
+.day-marker span {
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.itinerary-card {
+  overflow: hidden;
+  padding: 0 0 22px;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(20, 49, 39, 0.035);
+}
+
+.itinerary-photo {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.itinerary-eyebrow {
+  display: block;
+  margin: 0 22px 6px;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.itinerary-card h3,
+.itinerary-card p {
+  margin-left: 22px;
+  margin-right: 22px;
+}
+
+.itinerary-card h3 {
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.itinerary-card p {
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* Package, travel information and FAQs */
+
+.package-info-card,
+.travel-info-card,
+.faq-item,
+.sidebar-card {
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(20, 49, 39, 0.025);
+}
+
+.package-info-card {
+  padding: 26px;
+}
+
+.travel-info-card {
+  padding: 24px;
+}
+
+.faq-item[open] {
+  border-color: #b8d9cb;
+  box-shadow: 0 8px 28px rgba(20, 49, 39, 0.05);
+}
+
+.destination-sidebar {
+  gap: 18px;
+}
+
+.booking-sidebar-card {
+  background: linear-gradient(145deg, #e8f6ed, #fff 75%);
+}
+
+.primary-btn {
+  border-radius: 13px;
+}
+
+.site-footer {
+  margin-top: 20px;
+}
+
+/* Full-screen photo viewer */
+
+.photo-viewer[hidden] {
+  display: none !important;
+}
+
+.photo-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 28px;
+  background: rgba(7, 18, 14, 0.92);
+  backdrop-filter: blur(10px);
+  cursor: zoom-out;
+}
+
+.photo-viewer img {
+  max-width: min(1100px, 94vw);
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.35);
+}
+
+.photo-viewer p {
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+.photo-viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 30px;
+  line-height: 1;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 160px;
+  }
+
+  .gallery-item:first-child {
+    min-height: 333px;
+  }
+
+  .experience-image-wrap {
+    height: 165px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .hero-image-wrap {
+    height: 370px;
+    border-radius: 23px;
+  }
+
+  .hero-details {
+    padding-top: 28px;
+  }
+
+  .hero-main-info h1 {
+    font-size: 42px;
+  }
+
+  .destination-body {
+    padding-top: 22px;
+  }
+
+  .content-section {
+    margin-bottom: 52px;
+  }
+
+  .highlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .experience-image-wrap {
+    height: 135px;
+  }
+
+  .experience-copy {
+    padding: 15px;
+  }
+
+  .experience-copy h3 {
+    font-size: 14px;
+  }
+
+  .experience-copy p {
+    font-size: 12px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 150px;
+    gap: 10px;
+  }
+
+  .gallery-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 310px;
+  }
+
+  .gallery-item:nth-child(4n + 2) {
+    grid-column: span 1;
+  }
+
+  .itinerary-photo {
+    height: 155px;
+  }
+
+  .itinerary-card h3,
+  .itinerary-card p {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .itinerary-eyebrow {
+    margin-left: 16px;
+  }
+
+  .photo-viewer {
+    padding: 15px;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 420px) {
+  .hero-image-wrap {
+    height: 310px;
+  }
+
+  .hero-main-info h1 {
+    font-size: 35px;
+  }
+
+  .highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-image-wrap {
+    height: 175px;
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 125px;
+  }
+
+  .gallery-item:first-child {
+    min-height: 260px;
+  }
+
+  .itinerary-item {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .day-marker span {
+    width: 34px;
+    height: 34px;
+  }
+
+  .itinerary-photo {
+    height: 130px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+

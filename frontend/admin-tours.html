@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Tours | Go Trip</title>
+
+    <link rel="stylesheet" href="admin-tours.css">
+</head>
+
+<body class="admin-tours-body">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="admin-tours-navbar">
+
+        <div class="admin-tours-brand">
+            <span class="admin-tours-brand-name">Go Trip</span>
+            <span class="admin-tours-badge">ADMIN</span>
+        </div>
+
+        <div class="admin-tours-nav-actions">
+
+            <a href="admin.html" class="admin-tours-back-btn">
+                ← Dashboard
+            </a>
+
+            <button
+                type="button"
+                class="admin-tours-logout-btn"
+                id="adminToursLogoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="admin-tours-main">
+
+        <!-- PAGE HEADER -->
+
+        <section class="admin-tours-hero">
+
+            <div>
+
+                <span class="admin-tours-eyebrow">
+                    TOUR MANAGEMENT
+                </span>
+
+                <h1>
+                    Manage Tours
+                </h1>
+
+                <p>
+                    Add, edit and manage all Go Trip destinations.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="admin-add-tour-btn"
+                id="openAddTourBtn">
+
+                + Add New Tour
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= TOUR LIST ================= -->
+
+        <section class="admin-tour-section">
+
+            <div class="admin-tour-section-header">
+
+                <div>
+
+                    <span class="admin-tours-eyebrow">
+                        DESTINATIONS
+                    </span>
+
+                    <h2>
+                        All Tours
+                    </h2>
+
+                </div>
+
+                <span
+                    class="admin-tour-count"
+                    id="tourCount">
+                    0 Tours
+                </span>
+
+            </div>
+
+
+            <div
+                id="adminToursContainer"
+                class="admin-tours-grid">
+
+                <div class="admin-tour-loading">
+                    Loading tours...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= ADD / EDIT MODAL ================= -->
+
+    <div
+        class="admin-tour-modal"
+        id="tourModal"
+        aria-hidden="true">
+
+        <div class="admin-tour-modal-box">
+
+            <button
+                type="button"
+                class="admin-tour-modal-close"
+                id="closeTourModal">
+                ×
+            </button>
+
+            <span class="admin-tours-eyebrow">
+                TOUR MANAGEMENT
+            </span>
+
+            <h2 id="tourModalTitle">
+                Add New Tour
+            </h2>
+
+            <p class="admin-tour-modal-subtitle">
+                Enter the destination details below.
+            </p>
+
+
+            <form id="tourForm">
+
+                <input
+                    type="hidden"
+                    id="tourId">
+
+
+                <div class="admin-tour-form-row">
+
+                    <div class="admin-tour-form-group">
+
+                        <label for="tourName">
+                            Tour Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="tourName"
+                            required
+                            placeholder="Example: Goa Beach Getaway">
+
+                    </div>
+
+
+                    <div class="admin-tour-form-group">
+
+                        <label for="tourLocation">
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="tourLocation"
+                            required
+                            placeholder="Example: Goa">
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-tour-form-group">
+
+                    <label for="tourDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="tourDescription"
+                        rows="4"
+                        required
+                        placeholder="Describe this tour..."></textarea>
+
+                </div>
+
+
+                <div class="admin-tour-form-row">
+
+                    <div class="admin-tour-form-group">
+
+                        <label for="tourDuration">
+                            Duration (Days)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="tourDuration"
+                            min="1"
+                            required
+                            placeholder="5">
+
+                    </div>
+
+
+                    <div class="admin-tour-form-group">
+
+                        <label for="tourPrice">
+                            Price (₹)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="tourPrice"
+                            min="0"
+                            step="0.01"
+                            required
+                            placeholder="18999">
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-tour-form-row">
+
+                    <div class="admin-tour-form-group">
+
+                        <label for="tourRating">
+                            Rating
+                        </label>
+
+                        <input
+                            type="number"
+                            id="tourRating"
+                            min="0"
+                            max="5"
+                            step="0.1"
+                            required
+                            placeholder="4.8">
+
+                    </div>
+
+
+                    <div class="admin-tour-form-group">
+
+                        <label for="tourCategory">
+                            Category
+                        </label>
+
+                        <input
+                            type="text"
+                            id="tourCategory"
+                            required
+                            placeholder="Adventure">
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-tour-form-group">
+
+                    <label for="tourImage">
+                        Image URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="tourImage"
+                        required
+                        placeholder="https://example.com/image.jpg">
+
+                </div>
+
+
+                <div class="admin-tour-form-actions">
+
+                    <button
+                        type="button"
+                        class="admin-tour-cancel-btn"
+                        id="cancelTourFormBtn">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="admin-tour-save-btn"
+                        id="saveTourBtn">
+                        Save Tour
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="admin-tours.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Go Trip - Discover and plan unforgettable trips across India.">
+    <title>Go Trip | Explore India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Satisfy&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar" id="home">
+    <a class="logo" href="#home" aria-label="Go Trip home">Go Trip</a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+        <a class="active" href="#home">Home</a>
+        <a href="#tours">Tours</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="icon-btn notification-btn" type="button" aria-label="Notifications">🔔<span class="dot"></span></button>
+        <button class="login-btn" type="button" data-open-login>Login</button>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+    <a href="#home">Home</a>
+    <a href="#tours">Tours</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <button type="button" data-open-login>Login / Register</button>
+</div>
+
+<main>
+
+<section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <span class="eyebrow hero-eyebrow">TRAVEL INDIA • YOUR WAY</span>
+        <h1>Find Your Next<br><span>Beautiful Journey</span></h1>
+        <p>
+            Explore India's mountains, beaches, heritage cities and peaceful escapes.
+            Compare packages, choose your date and plan with confidence.
+        </p>
+
+        <form class="search-panel" id="searchForm" novalidate>
+            <div class="search-control">
+                <span class="control-icon">📍</span>
+                <div>
+                    <label for="destination">Where do you want to go?</label>
+                    <input id="destination" list="destinationList" type="text"
+                           placeholder="Search a destination" autocomplete="off">
+                    <datalist id="destinationList">
+                        <option value="Jaipur"></option>
+                        <option value="Goa"></option>
+                        <option value="Manali"></option>
+                        <option value="Kerala"></option>
+                        <option value="Kashmir"></option>
+                        <option value="Varanasi"></option>
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="search-control">
+                <span class="control-icon">📅</span>
+                <div>
+                    <label for="travelDate">Travel date</label>
+                    <input id="travelDate" type="date">
+                </div>
+            </div>
+
+            <div class="search-control">
+                <span class="control-icon">👥</span>
+                <div>
+                    <label for="travellers">Travellers</label>
+                    <select id="travellers">
+                        <option value="1">1 Traveller</option>
+                        <option value="2" selected>2 Travellers</option>
+                        <option value="3">3 Travellers</option>
+                        <option value="4">4 Travellers</option>
+                        <option value="5">5 Travellers</option>
+                        <option value="6">6 Travellers</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="primary-btn search-btn" type="submit">Search Tours</button>
+        </form>
+
+        <p class="search-help">💡 Tip: Choose a destination and date to see matching packages.</p>
+    </div>
+
+    <a class="scroll-cue" href="#tours" aria-label="View tours">↓</a>
+</section>
+
+
+<section class="trust-strip" id="why-us">
+    <div class="trust-item">
+        <span class="trust-icon">✓</span>
+        <div><strong>Clear Pricing</strong><small>No confusing last-minute surprises</small></div>
+    </div>
+    <div class="trust-item">
+        <span class="trust-icon">🛡</span>
+        <div><strong>Secure Booking</strong><small>Your booking details stay protected</small></div>
+    </div>
+    <div class="trust-item">
+        <span class="trust-icon">📞</span>
+        <div><strong>Travel Support</strong><small>Help when you need it</small></div>
+    </div>
+    <div class="trust-item">
+        <span class="trust-icon">⭐</span>
+        <div><strong>Curated Trips</strong><small>Handpicked experiences across India</small></div>
+    </div>
+</section>
+
+
+<section class="section services-section">
+    <div class="section-heading">
+        <span class="eyebrow">WHY TRAVELLERS CHOOSE US</span>
+        <h2>Travel should feel exciting, not confusing.</h2>
+        <p>Everything important is kept visible so a traveller can understand the package before booking.</p>
+    </div>
+
+    <div class="service-grid">
+        <article class="service-card">
+            <div class="service-icon">🗺️</div>
+            <h3>Easy Discovery</h3>
+            <p>Search destinations and compare packages without getting lost in complicated menus.</p>
+        </article>
+        <article class="service-card">
+            <div class="service-icon">💰</div>
+            <h3>Price Up Front</h3>
+            <p>See starting price, duration, destination and important inclusions before you continue.</p>
+        </article>
+        <article class="service-card">
+            <div class="service-icon">📋</div>
+            <h3>Booking Details</h3>
+            <p>Your future account will keep booking ID, travel date, travellers, payment and status together.</p>
+        </article>
+        <article class="service-card">
+            <div class="service-icon">💬</div>
+            <h3>Human Support</h3>
+            <p>Contact information and support are easy to find instead of being hidden in the footer.</p>
+        </article>
+    </div>
+</section>
+
+
+<section class="section tours-section" id="tours">
+    <div class="section-heading">
+        <span class="eyebrow">POPULAR INDIA TOURS</span>
+        <h2>Choose your kind of escape</h2>
+        <p>Every card gives the traveller the information needed to make a quick first decision.</p>
+    </div>
+
+    <div class="tour-toolbar">
+        <div>
+            <strong id="resultCount">6</strong> packages available
+        </div>
+        <div class="toolbar-actions">
+            <label for="sortTours" class="sr-only">Sort tours</label>
+            <select id="sortTours">
+                <option value="popular">Most Popular</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="duration">Shortest Trip</option>
+            </select>
+            <button type="button" class="clear-btn" id="clearSearch">Clear Search</button>
+        </div>
+    </div>
+
+    <div class="tour-grid" id="tourGrid">
+
+        <article class="tour-card" data-name="Royal Jaipur Escape" data-search="jaipur rajasthan pink city" data-price="25999" data-duration="5" data-rating="4.9">
+            <div class="tour-image">
+                <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=90" alt="Jaipur heritage architecture" loading="lazy">
+                <span class="tour-badge">BEST SELLER</span>
+                <button class="heart-btn" type="button" aria-label="Save Royal Jaipur Escape">♡</button>
+            </div>
+            <div class="tour-content">
+                <div class="rating">★★★★★ <span>4.9</span></div>
+                <h3>Royal Jaipur Escape</h3>
+                <p class="tour-description">Forts, palaces, colourful markets and the royal charm of the Pink City.</p>
+                <div class="tour-meta"><span>🕓 5 Days</span><span>📍 Jaipur</span></div>
+                <div class="tour-footer">
+                    <div><small>Starting from</small><strong>₹25,999</strong><small>/ person</small></div>
+                    <button class="outline-small" type="button" data-tour="Royal Jaipur Escape">View Details</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="tour-card" data-name="Goa Beach Getaway" data-search="goa beach north south" data-price="16999" data-duration="4" data-rating="4.8">
+            <div class="tour-image">
+                <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1200&q=90" alt="Goa beach" loading="lazy">
+                <span class="tour-badge">BEACH FAVOURITE</span>
+                <button class="heart-btn" type="button" aria-label="Save Goa Beach Getaway">♡</button>
+            </div>
+            <div class="tour-content">
+                <div class="rating">★★★★★ <span>4.8</span></div>
+                <h3>Goa Beach Getaway</h3>
+                <p class="tour-description">Sunny beaches, relaxed cafés, sunsets and a fun coastal holiday.</p>
+                <div class="tour-meta"><span>🕓 4 Days</span><span>📍 Goa</span></div>
+                <div class="tour-footer">
+                    <div><small>Starting from</small><strong>₹16,999</strong><small>/ person</small></div>
+                    <button class="outline-small" type="button" data-tour="Goa Beach Getaway">View Details</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="tour-card" data-name="Manali Mountain Escape" data-search="manali himachal mountains snow" data-price="18999" data-duration="6" data-rating="4.9">
+            <div class="tour-image">
+                <img src="https://images.unsplash.com/photo-1706696435436-200ba23cda35?auto=format&fit=crop&w=1200&q=90" alt="Manali mountains" loading="lazy">
+                <span class="tour-badge">MOUNTAIN PICK</span>
+                <button class="heart-btn" type="button" aria-label="Save Manali Mountain Escape">♡</button>
+            </div>
+            <div class="tour-content">
+                <div class="rating">★★★★★ <span>4.9</span></div>
+                <h3>Manali Mountain Escape</h3>
+                <p class="tour-description">Mountain views, pine forests, valleys and a peaceful Himalayan stay.</p>
+                <div class="tour-meta"><span>🕓 6 Days</span><span>📍 Manali</span></div>
+                <div class="tour-footer">
+                    <div><small>Starting from</small><strong>₹18,999</strong><small>/ person</small></div>
+                    <button class="outline-small" type="button" data-tour="Manali Mountain Escape">View Details</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="tour-card" data-name="Kerala Backwater Escape" data-search="kerala munnar alleppey backwater" data-price="22999" data-duration="6" data-rating="4.9">
+            <div class="tour-image">
+                <img src="https://images.unsplash.com/photo-1572002265188-173c1a2f6699?auto=format&fit=crop&w=1200&q=90" alt="Kerala backwaters" loading="lazy">
+                <span class="tour-badge">RELAX & RECHARGE</span>
+                <button class="heart-btn" type="button" aria-label="Save Kerala Backwater Escape">♡</button>
+            </div>
+            <div class="tour-content">
+                <div class="rating">★★★★★ <span>4.9</span></div>
+                <h3>Kerala Backwater Escape</h3>
+                <p class="tour-description">Houseboats, tea gardens, tropical scenery and peaceful backwaters.</p>
+                <div class="tour-meta"><span>🕓 6 Days</span><span>📍 Kerala</span></div>
+                <div class="tour-footer">
+                    <div><small>Starting from</small><strong>₹22,999</strong><small>/ person</small></div>
+                    <button class="outline-small" type="button" data-tour="Kerala Backwater Escape">View Details</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="tour-card" data-name="Magical Kashmir Journey" data-search="kashmir srinagar dal lake mountains" data-price="29999" data-duration="7" data-rating="4.9">
+            <div class="tour-image">
+                <img src="https://s7ap1.scene7.com/is/image/incredibleindia/dal-lake-srinagar-j_k-tri-hero?qlt=82&ts=1727163903213&wid=1200" alt="Dal Lake in Srinagar Kashmir" loading="lazy">
+                <span class="tour-badge">SCENIC FAVOURITE</span>
+                <button class="heart-btn" type="button" aria-label="Save Magical Kashmir Journey">♡</button>
+            </div>
+            <div class="tour-content">
+                <div class="rating">★★★★★ <span>4.9</span></div>
+                <h3>Magical Kashmir Journey</h3>
+                <p class="tour-description">Dal Lake, shikara rides, valleys and unforgettable mountain views.</p>
+                <div class="tour-meta"><span>🕓 7 Days</span><span>📍 Srinagar</span></div>
+                <div class="tour-footer">
+                    <div><small>Starting from</small><strong>₹29,999</strong><small>/ person</small></div>
+                    <button class="outline-small" type="button" data-tour="Magical Kashmir Journey">View Details</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="tour-card" data-name="Spiritual Varanasi" data-search="varanasi uttar pradesh ganga ghats culture" data-price="12999" data-duration="3" data-rating="4.7">
+            <div class="tour-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Varanasi_ganga.jpg/1280px-Varanasi_ganga.jpg" alt="Varanasi Ganga ghats" loading="lazy">
+                <span class="tour-badge">CULTURE & HERITAGE</span>
+                <button class="heart-btn" type="button" aria-label="Save Spiritual Varanasi">♡</button>
+            </div>
+            <div class="tour-content">
+                <div class="rating">★★★★★ <span>4.7</span></div>
+                <h3>Spiritual Varanasi</h3>
+                <p class="tour-description">Ghats, Ganga views, local culture and a timeless heritage experience.</p>
+                <div class="tour-meta"><span>🕓 3 Days</span><span>📍 Varanasi</span></div>
+                <div class="tour-footer">
+                    <div><small>Starting from</small><strong>₹12,999</strong><small>/ person</small></div>
+                    <button class="outline-small" type="button" data-tour="Spiritual Varanasi">View Details</button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="empty-state" id="emptyState" hidden>
+        <div>🔎</div>
+        <h3>No matching tour found</h3>
+        <p>Try Jaipur, Goa, Manali, Kerala, Kashmir or Varanasi.</p>
+        <button class="primary-btn" type="button" id="showAll">Show All Tours</button>
+    </div>
+</section>
+
+
+<section class="about-section section" id="about">
+    <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=90" alt="Taj Mahal in India" loading="lazy">
+        <div class="rating-badge"><strong>4.8</strong><span>Traveller rating</span></div>
+    </div>
+
+    <div class="about-copy">
+        <span class="eyebrow">ABOUT GO TRIP</span>
+        <h2>A simple place to plan your next Indian adventure.</h2>
+        <p>
+            We are designing Go Trip around one basic rule: a traveller should understand
+            where they are going, what the package includes, how much it costs and what
+            happens after booking.
+        </p>
+
+        <div class="check-list">
+            <div><span>✓</span> Destination, duration and starting price shown clearly</div>
+            <div><span>✓</span> Booking information designed to stay easy to find</div>
+            <div><span>✓</span> Company and support details kept visible</div>
+            <div><span>✓</span> Mobile-friendly experience for travellers on the go</div>
+        </div>
+
+        
+<button
+    class="primary-btn about-btn"
+    type="button"
+    onclick="window.location.href='about-go-trip.html'">
+    Know About Go Trip
+</button>
+
+    </div>
+</section>
+
+
+<section class="section company-preview">
+    <div class="company-card">
+        <div class="company-icon">📍</div>
+        <div>
+            <span class="eyebrow">COMPANY INFORMATION</span>
+            <h2>Know who you are booking with.</h2>
+            <p>Company address, support phone, email, working hours, policies and other verified business information will be displayed here before the real booking system goes live.</p>
+        </div>
+        <button
+    class="outline-btn"
+    type="button"
+    onclick="window.location.href='about-company.html'">
+    View Company Details
+</button>
+    </div>
+</section>
+
+
+<section class="section faq-section" id="faq">
+    <div class="section-heading">
+        <span class="eyebrow">NEED HELP?</span>
+        <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-list">
+        <details>
+            <summary>Where can I see my booking after I book?</summary>
+            <p>After login, the final version will provide a My Bookings section with booking ID, travel date, travellers, payment status, cancellation and ticket download.</p>
+        </details>
+        <details>
+            <summary>Will I receive a booking confirmation?</summary>
+            <p>Yes. The frontend is prepared for a confirmation screen and, later, email/PDF confirmation from the Spring Boot backend.</p>
+        </details>
+        <details>
+            <summary>Can I cancel a booking?</summary>
+            <p>The final booking system will show the applicable cancellation policy and allow eligible bookings to be cancelled from My Bookings.</p>
+        </details>
+        <details>
+            <summary>How do I contact Go Trip?</summary>
+            <p>The Contact section will show the company's verified phone, email, office address and support hours once those real business details are configured.</p>
+        </details>
+    </div>
+</section>
+
+
+<section class="contact-section section" id="contact">
+    <div class="contact-layout">
+        <div class="contact-copy">
+            <span class="eyebrow">WE'RE HERE TO HELP</span>
+            <h2>Have a question before booking?</h2>
+            <p>Send an enquiry. In the Spring Boot version, this form will create a support/contact request in the database.</p>
+
+            <div class="contact-points">
+                <div><span>📞</span><div><strong>Phone</strong><small>9691439806</small></div></div>
+                <div><span>✉️</span><div><strong>Email</strong><small>gotrip@rahul.com</small></div></div>
+                <div><span>📍</span><div><strong>Office</strong><small>Go-Trip, Bhopal, MP</small></div></div>
+            </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+                <div class="form-group"><label for="name">Full Name</label><input id="name" type="text" required placeholder="Enter your name"></div>
+                <div class="form-group"><label for="email">Email</label><input id="email" type="email" required placeholder="you@example.com"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label for="phone">Phone</label><input id="phone" type="tel" required placeholder="+91"></div>
+                <div class="form-group"><label for="subject">Subject</label><select id="subject"><option>Tour enquiry</option><option>Booking help</option><option>Payment help</option><option>Cancellation</option><option>Other</option></select></div>
+            </div>
+            <div class="form-group"><label for="message">Message</label><textarea id="message" rows="5" required placeholder="Tell us what you need help with..."></textarea></div>
+            <button class="primary-btn" type="submit">Send Enquiry</button>
+            <p class="form-note">No payment is taken from this demo form.</p>
+        </form>
+    </div>
+</section>
+
+</main>
+
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <a class="logo footer-logo" href="#home">Go Trip</a>
+            <p>Explore India. Plan with confidence. Create memories.</p>
+            <div class="social-links">
+                <a href="#contact" aria-label="Instagram">◎</a>
+                <a href="#contact" aria-label="Facebook">f</a>
+                <a href="#contact" aria-label="YouTube">▶</a>
+            </div>
+        </div>
+
+        <div>
+            <h3>Explore</h3>
+            <a href="#tours">Popular Tours</a>
+            <a href="#why-us">Why Choose Us</a>
+            <a href="#about">About Go Trip</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div>
+            <h3>Popular Places</h3>
+            <a href="#tours">Jaipur</a>
+            <a href="#tours">Goa</a>
+            <a href="#tours">Manali</a>
+            <a href="#tours">Kerala</a>
+            <a href="#tours">Kashmir</a>
+        </div>
+
+        <div>
+            <h3>Help & Legal</h3>
+            <a href="#contact">Support</a>
+            <a href="#faq">FAQs</a>
+            <a href="#contact">Cancellation Help</a>
+            <a href="#contact">Privacy & Terms</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Go Trip. Demo travel platform.</span>
+        <span>Company details will be replaced with verified information before launch.</span>
+    </div>
+</footer>
+
+
+<!-- LOGIN / REGISTER MODAL -->
+<div class="modal" id="loginModal" aria-hidden="true">
+    <div class="modal-box small-modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+
+        <button class="modal-close" type="button" data-close-modal aria-label="Close">
+            ×
+        </button>
+
+        <span class="eyebrow">WELCOME BACK</span>
+
+        <h2 id="loginTitle">
+            Login to Go Trip
+        </h2>
+
+        <p class="modal-subtitle">
+            Your future account will contain bookings, wishlist and profile details.
+        </p>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input
+                    id="loginEmail"
+                    type="email"
+                    required
+                    placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input
+                    id="loginPassword"
+                    type="password"
+                    required
+                    placeholder="Enter password">
+            </div>
+
+            <button class="primary-btn full-btn" type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <!-- Register Option -->
+        <div class="auth-switch">
+            <span>Don't have an account?</span>
+
+            <button
+                type="button"
+                onclick="openRegisterModal()">
+                Create Account
+            </button>
+        </div>
+
+        <p class="demo-note">
+            🔐 Your account is secured with Spring Boot & JWT authentication.
+        </p>
+
+    </div>
+</div>
+
+<!-- ================================
+     REGISTER MODAL
+================================ -->
+
+<div class="modal" id="registerModal" aria-hidden="true">
+
+    <div class="modal-box small-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="registerTitle">
+
+        <button
+            class="modal-close"
+            type="button"
+            data-close-modal
+            aria-label="Close">
+            ×
+        </button>
+
+        <span class="eyebrow">CREATE ACCOUNT</span>
+
+        <h2 id="registerTitle">
+            Join Go Trip
+        </h2>
+
+        <p class="modal-subtitle">
+            Create your account and start planning your next journey.
+        </p>
+
+
+        <form id="registerForm">
+
+            <div class="form-group">
+                <label for="registerName">
+                    Full Name
+                </label>
+
+                <input
+                    id="registerName"
+                    type="text"
+                    required
+                    placeholder="Enter your full name">
+            </div>
+
+
+            <div class="form-group">
+                <label for="registerEmail">
+                    Email
+                </label>
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    required
+                    placeholder="you@example.com">
+            </div>
+
+
+            <div class="form-group">
+                <label for="registerPhone">
+                    Mobile Number
+                </label>
+
+                <input
+                    id="registerPhone"
+                    type="tel"
+                    maxlength="10"
+                    required
+                    placeholder="10-digit mobile number">
+            </div>
+
+
+            <div class="form-group">
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    required
+                    placeholder="Create a password">
+            </div>
+
+
+            <button
+                class="primary-btn full-btn"
+                type="submit">
+                CREATE ACCOUNT
+            </button>
+
+        </form>
+
+
+        <div class="auth-switch">
+
+            <span>
+                Already have an account?
+            </span>
+
+            <button
+                type="button"
+                id="openLoginFromRegister">
+                Login
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOUR DETAILS MODAL -->
+<div class="modal" id="tourModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tourModalTitle">
+        <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
+        <div id="tourModalContent"></div>
+    </div>
+</div>
+
+
+<!-- COMPANY DETAILS MODAL -->
+<div class="modal" id="companyModal" aria-hidden="true">
+    <div class="modal-box company-modal" role="dialog" aria-modal="true" aria-labelledby="companyTitle">
+        <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
+        <span class="eyebrow">ABOUT THE COMPANY</span>
+        <h2 id="companyTitle">Go Trip — Company Information</h2>
+        <p class="modal-subtitle">This is intentionally marked as placeholder information until the real company details are finalized.</p>
+
+        <div class="company-info-grid">
+            <div><span>📍</span><strong>Office</strong><p>Go-Trip, Bhopal, MP</p></div>
+            <div><span>📞</span><strong>Phone</strong><p>9691439806</p></div>
+            <div><span>✉️</span><strong>Email</strong><p>gotrip@rahul.com</p></div>
+            <div><span>🕐</span><strong>Working Hours</strong><p>Mon–Sat • 9:00 AM–7:00 PM</p></div>
+        </div>
+
+        <div class="notice-box">
+            <strong>Before launch:</strong> replace every placeholder with the company's real legal name, registered/business address, phone, email, GST/registration details if applicable, and actual policies.
+        </div>
+    </div>
+</div>
+
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+
+<!-- BOOKING MODAL -->
+<!-- =========================================================
+     BOOKING MODAL
+========================================================= -->
+
+<div id="bookingModal" class="modal">
+
+    <div class="modal-card booking-modal-card">
+
+        <button
+            class="modal-close"
+            onclick="closeBookingModal()"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+            <span class="eyebrow">
+                BOOK YOUR TRIP
+            </span>
+
+            <h2 id="bookingTourName">
+                Book Your Tour
+            </h2>
+
+            <p id="bookingTourInfo">
+                Complete your details below to continue.
+            </p>
+
+        </div>
+
+
+        <form id="bookingForm">
+
+            <!-- Hidden Tour ID -->
+
+            <input
+                type="hidden"
+                id="bookingTourId"
+            >
+
+
+            <!-- =========================================
+                 PRIMARY CONTACT
+            ========================================== -->
+
+            <div class="booking-section">
+
+                <div class="booking-section-title">
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <div>
+                        <h3>Primary Contact</h3>
+
+                        <p>
+                            Your Go Trip account details
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="bookingName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="bookingName"
+                            placeholder="Your full name"
+                            readonly
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="bookingPhone">
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="bookingPhone"
+                            placeholder="10-digit mobile number"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="bookingEmail">
+                        Account Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="bookingEmail"
+                        placeholder="Your account email"
+                        readonly
+                        required
+                    >
+
+                    <small class="booking-field-note">
+                        This email is taken from your Go Trip account.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 TRAVEL DETAILS
+            ========================================== -->
+
+            <div class="booking-section">
+
+                <div class="booking-section-title">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3>Travel Details</h3>
+
+                        <p>
+                            Choose your date and number of travellers
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="bookingDate">
+                            Travel Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="bookingDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="travellers">
+                            Travellers
+                        </label>
+
+                       <input
+    type="number"
+    id="bookingTravellers"
+    min="1"
+    max="20"
+    value="1"
+    required
+>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 PASSENGERS
+            ========================================== -->
+
+            <div class="booking-section">
+
+                <div class="booking-section-title">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3>Passenger Details</h3>
+
+                        <p>
+                            Enter details for everyone travelling
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div id="passengersContainer">
+
+                    <!-- Passenger fields generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 BOOKING SUMMARY
+            ========================================== -->
+
+            <div class="booking-summary">
+
+                <div>
+
+                    <span>
+                        Price / Person
+                    </span>
+
+                    <strong id="bookingPrice">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Travellers
+                    </span>
+
+                    <strong id="bookingTravellerCount">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-summary-total">
+
+                    <span>
+                        Total Amount
+                    </span>
+
+                    <strong id="bookingTotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 CONFIRM
+            ========================================== -->
+
+            <button
+                type="submit"
+                class="btn-primary booking-confirm-btn"
+            >
+                CONFIRM BOOKING
+            </button>
+
+
+            <p class="booking-note">
+
+                🔒 Your booking information is secure.
+
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ASK QUESTION MODAL -->
+<div id="questionModal" class="modal">
+    <div class="modal-card question-modal-card">
+
+        <button class="modal-close" onclick="closeQuestionModal()">×</button>
+
+        <div class="modal-header">
+            <span class="eyebrow">NEED HELP?</span>
+            <h2>Ask a Question</h2>
+            <p id="questionTourName">
+                Ask us anything about this tour.
+            </p>
+        </div>
+
+        <form id="questionForm">
+
+            <input type="hidden" id="questionTourId">
+
+            <div class="form-group">
+                <label for="questionName">Your Name</label>
+                <input
+                    type="text"
+                    id="questionName"
+                    placeholder="Enter your name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="questionEmail">Email</label>
+                <input
+                    type="email"
+                    id="questionEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="questionText">Your Question</label>
+                <textarea
+                    id="questionText"
+                    rows="5"
+                    placeholder="What would you like to know?"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                SEND QUESTION
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

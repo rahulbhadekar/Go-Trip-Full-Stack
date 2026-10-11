@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Destination Details | Go Trip</title>
+    <meta name="description"
+        content="Explore destination highlights, travel itineraries, package information and booking details with Go Trip.">
+
+    <link rel="stylesheet" href="destination-details.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+        <div class="nav-container">
+
+            <a href="index.html" class="brand" aria-label="Go Trip home">
+                Go Trip<span>.</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#tours">Explore Tours</a>
+                <a href="about-go-trip.html">About Us</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+
+            <a href="my-bookings.html" class="my-bookings-link">
+                My Bookings
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- ================= BREADCRUMB ================= -->
+
+    <main>
+
+        <section class="breadcrumb-section">
+            <div class="page-container">
+                <a href="index.html#tours">Explore Tours</a>
+                <span>/</span>
+                <span id="breadcrumbDestination">Destination Details</span>
+            </div>
+        </section>
+
+
+        <!-- ================= LOADING STATE ================= -->
+
+        <section id="destinationLoading" class="loading-state" aria-live="polite">
+            <div class="loader"></div>
+            <p>Discovering your destination...</p>
+        </section>
+
+
+        <!-- ================= ERROR STATE ================= -->
+
+        <section id="destinationError" class="error-state" hidden>
+            <div class="error-icon">!</div>
+            <h1>Destination not found</h1>
+            <p id="destinationErrorMessage">
+                We couldn't load this destination. Please return to our tours.
+            </p>
+            <a href="index.html#tours" class="primary-btn">
+                Explore All Tours
+            </a>
+        </section>
+
+
+        <!-- ================= DESTINATION CONTENT ================= -->
+
+        <div id="destinationContent" hidden>
+
+            <!-- HERO -->
+
+            <section class="destination-hero">
+                <div class="page-container">
+
+                    <div class="hero-image-wrap">
+                        <img
+                            id="destinationHeroImage"
+                            src=""
+                            alt="Destination landscape"
+                        >
+
+                        <div class="hero-image-overlay"></div>
+
+                        <div class="hero-image-caption">
+                            <span class="eyebrow">YOUR NEXT ADVENTURE</span>
+                            <p id="heroImageCaption">
+                                Discover a new destination
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            id="shareDestination"
+                            class="share-btn"
+                            aria-label="Share destination"
+                        >
+                            ↗ Share
+                        </button>
+                    </div>
+
+                    <div class="hero-details">
+
+                        <div class="hero-main-info">
+                            <div class="location-label">
+                                <span>📍</span>
+                                <span id="destinationLocation">India</span>
+                            </div>
+
+                            <h1 id="destinationName">
+                                Discover India
+                            </h1>
+
+                            <p id="destinationShortDescription" class="hero-description">
+                                Your next memorable journey starts here.
+                            </p>
+
+                            <div class="hero-meta">
+                                <span class="meta-item">
+                                    <span>◷</span>
+                                    <span id="destinationDuration">Duration varies</span>
+                                </span>
+
+                                <span class="meta-divider"></span>
+
+                                <span class="meta-item">
+                                    <span>★</span>
+                                    <span id="destinationRating">Rating unavailable</span>
+                                </span>
+
+                                <span class="meta-divider"></span>
+
+                                <span class="meta-item">
+                                    <span>🇮🇳</span>
+                                    India
+                                </span>
+                            </div>
+                        </div>
+
+                        <aside class="price-card">
+                            <span class="price-label">PACKAGE STARTS FROM</span>
+
+                            <div class="price-line">
+                                <span id="destinationPrice">Price on request</span>
+                            </div>
+
+                            <span class="price-note">
+                                Per person, subject to package details
+                            </span>
+
+                            <button
+                                type="button"
+                                id="bookSelectedTour"
+                                class="primary-btn book-btn"
+                            >
+                                Book This Tour
+                                <span>→</span>
+                            </button>
+
+                            <p class="booking-note">
+                                Review the package details before booking.
+                            </p>
+                        </aside>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- PAGE CONTENT + SIDEBAR -->
+
+            <section class="destination-body">
+                <div class="page-container destination-layout">
+
+                    <div class="destination-main-column">
+
+                        <!-- OVERVIEW -->
+
+                        <section class="content-section" id="overview">
+                            <div class="section-heading">
+                                <span class="section-kicker">GET TO KNOW IT</span>
+                                <h2>About This Destination</h2>
+                            </div>
+
+                            <p id="destinationDescription" class="body-copy">
+                                Explore the destination and discover what makes it special.
+                            </p>
+
+                            <div class="highlight-grid" id="destinationHighlights">
+
+                                <article class="highlight-card">
+                                    <span class="highlight-icon">📍</span>
+                                    <h3>Local Attractions</h3>
+                                    <p>Discover places worth exploring.</p>
+                                </article>
+
+                                <article class="highlight-card">
+                                    <span class="highlight-icon">📸</span>
+                                    <h3>Memorable Experiences</h3>
+                                    <p>Make memories along the way.</p>
+                                </article>
+
+                                <article class="highlight-card">
+                                    <span class="highlight-icon">🌄</span>
+                                    <h3>Local Culture</h3>
+                                    <p>Experience the character of the destination.</p>
+                                </article>
+
+                            </div>
+                        </section>
+
+
+                        <!-- PHOTO GALLERY -->
+
+                        <section class="content-section" id="gallery">
+                            <div class="section-heading">
+                                <span class="section-kicker">A GLIMPSE OF THE JOURNEY</span>
+                                <h2>Destination Gallery</h2>
+                            </div>
+
+                            <p class="body-copy">
+                                Explore the beauty of your selected destination.
+                            </p>
+
+                            <div id="destinationGallery" class="gallery-grid">
+                                <div class="gallery-placeholder">
+                                    Destination photos will appear here.
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <!-- ITINERARY -->
+
+                        <section class="content-section" id="itinerary">
+                            <div class="section-heading">
+                                <span class="section-kicker">YOUR JOURNEY, PLANNED</span>
+                                <h2>Travel Itinerary</h2>
+                            </div>
+
+                            <p class="body-copy">
+                                Your day-wise travel plan will help you understand
+                                how the trip can be organised.
+                            </p>
+
+                            <div id="destinationItinerary" class="itinerary-list">
+
+                                <article class="itinerary-item">
+                                    <div class="day-marker">
+                                        <span>01</span>
+                                    </div>
+
+                                    <div class="itinerary-card">
+                                        <h3>Arrival & Exploration</h3>
+                                        <p>
+                                            Your day-wise itinerary will be shown
+                                            here when available.
+                                        </p>
+                                    </div>
+                                </article>
+
+                            </div>
+
+                            <p class="disclaimer-text">
+                                The final schedule, sightseeing stops and timings
+                                depend on the selected package and confirmed booking.
+                            </p>
+                        </section>
+
+
+                        <!-- INCLUSIONS / EXCLUSIONS -->
+
+                        <section class="content-section" id="package-details">
+                            <div class="section-heading">
+                                <span class="section-kicker">KNOW BEFORE YOU GO</span>
+                                <h2>Package Details</h2>
+                            </div>
+
+                            <p class="body-copy">
+                                Check what is included in the selected package
+                                and what you may need to arrange separately.
+                            </p>
+
+                            <div class="package-info-grid">
+
+                                <article class="package-info-card">
+                                    <div class="package-card-title">
+                                        <span class="info-icon included-icon">✓</span>
+                                        <h3>What's Included</h3>
+                                    </div>
+
+                                    <ul id="destinationInclusions">
+                                        <li>Package inclusions will be confirmed before booking.</li>
+                                    </ul>
+                                </article>
+
+                                <article class="package-info-card">
+                                    <div class="package-card-title">
+                                        <span class="info-icon excluded-icon">−</span>
+                                        <h3>What's Not Included</h3>
+                                    </div>
+
+                                    <ul id="destinationExclusions">
+                                        <li>Check the final package terms for exclusions.</li>
+                                    </ul>
+                                </article>
+
+                            </div>
+
+                            <div class="important-note">
+                                <strong>Important:</strong>
+                                Hotels, transport, meals, entry tickets and other
+                                facilities are subject to the actual package selected.
+                                Please confirm these details before payment.
+                            </div>
+                        </section>
+
+
+                        <!-- TRAVEL INFORMATION -->
+
+                        <section class="content-section" id="travel-info">
+                            <div class="section-heading">
+                                <span class="section-kicker">PLAN WITH CONFIDENCE</span>
+                                <h2>Travel Information</h2>
+                            </div>
+
+                            <div class="travel-info-grid">
+
+                                <article class="travel-info-card">
+                                    <span class="travel-info-icon">🗓️</span>
+                                    <h3>Best Time to Visit</h3>
+                                    <p id="bestTimeToVisit">
+                                        Check seasonal conditions before planning.
+                                    </p>
+                                </article>
+
+                                <article class="travel-info-card">
+                                    <span class="travel-info-icon">🎒</span>
+                                    <h3>What to Carry</h3>
+                                    <p id="whatToCarry">
+                                        Carry suitable clothing, identification and
+                                        personal essentials for your trip.
+                                    </p>
+                                </article>
+
+                                <article class="travel-info-card">
+                                    <span class="travel-info-icon">🚗</span>
+                                    <h3>Getting Around</h3>
+                                    <p id="gettingAround">
+                                        Confirm local transport arrangements
+                                        for your selected package.
+                                    </p>
+                                </article>
+
+                                <article class="travel-info-card">
+                                    <span class="travel-info-icon">ℹ️</span>
+                                    <h3>Before You Travel</h3>
+                                    <p>
+                                        Check your booking confirmation, travel
+                                        documents and the latest local guidance.
+                                    </p>
+                                </article>
+
+                            </div>
+                        </section>
+
+
+                        <!-- FAQ -->
+
+                        <section class="content-section" id="destinationFaq">
+                            <div class="section-heading">
+                                <span class="section-kicker">NEED TO KNOW</span>
+                                <h2>Frequently Asked Questions</h2>
+                            </div>
+
+                            <div class="faq-list">
+
+                                <details class="faq-item">
+                                    <summary>How can I book this destination?</summary>
+                                    <p>
+                                        Sign in to Go Trip, select Book This Tour
+                                        and follow the booking steps displayed.
+                                    </p>
+                                </details>
+
+                                <details class="faq-item">
+                                    <summary>Is the displayed price final?</summary>
+                                    <p>
+                                        The displayed price may be a starting price.
+                                        Confirm the final amount and package terms
+                                        before completing your booking.
+                                    </p>
+                                </details>
+
+                                <details class="faq-item">
+                                    <summary>Are hotels and meals included?</summary>
+                                    <p>
+                                        They are included only when specified in
+                                        the selected package. Review the inclusions
+                                        before booking.
+                                    </p>
+                                </details>
+
+                                <details class="faq-item">
+                                    <summary>Can I view my booking later?</summary>
+                                    <p>
+                                        Open My Bookings after signing in to view
+                                        your available booking information.
+                                    </p>
+                                </details>
+
+                            </div>
+                        </section>
+
+                    </div>
+
+
+                    <!-- RIGHT SIDEBAR -->
+
+                    <aside class="destination-sidebar">
+
+                        <div class="sidebar-card quick-nav-card">
+                            <h3>Explore This Page</h3>
+
+                            <a href="#overview">Destination Overview <span>→</span></a>
+                            <a href="#gallery">Photo Gallery <span>→</span></a>
+                            <a href="#itinerary">Travel Itinerary <span>→</span></a>
+                            <a href="#package-details">Package Details <span>→</span></a>
+                            <a href="#travel-info">Travel Information <span>→</span></a>
+                            <a href="#destinationFaq">FAQs <span>→</span></a>
+                        </div>
+
+                        <div class="sidebar-card booking-sidebar-card">
+                            <span class="sidebar-kicker">READY TO EXPLORE?</span>
+                            <h3>Your next journey starts here.</h3>
+
+                            <p>
+                                Review the package information and book when
+                                you're ready.
+                            </p>
+
+                            <button
+                                type="button"
+                                id="sidebarBookTour"
+                                class="primary-btn sidebar-book-btn"
+                            >
+                                Book This Tour →
+                            </button>
+
+                            <a href="index.html#tours" class="back-to-tours">
+                                ← Browse other destinations
+                            </a>
+                        </div>
+
+                    </aside>
+
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+        <div class="page-container footer-content">
+
+            <div>
+                <a href="index.html" class="brand footer-brand">
+                    Go Trip<span>.</span>
+                </a>
+
+                <p>
+                    Discover destinations, plan journeys and make
+                    your next trip memorable.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tours">Explore Tours</a>
+                <a href="about-go-trip.html">About Go Trip</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© <span id="currentYear">2026</span> Go Trip. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- ================= TOAST MESSAGE ================= -->
+
+    <div id="destinationToast" class="destination-toast"
+        role="status" aria-live="polite" hidden>
+    </div>
+
+
+    <!-- Keep this script last so page elements load first -->
+    <-- <script src="destination-details.js"></script>  -->
+    <script src="destination-details.js" defer></script>
+
+</body>
+</html>

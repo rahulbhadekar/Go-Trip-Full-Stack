@@ -1,0 +1,1562 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Go Trip | Discover Your World</title>
+<meta name="description" content="Discover the story, mission and values behind Go Trip, your travel discovery platform.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --navy: #11162f;
+    --navy-light: #20294b;
+    --gold: #ffc928;
+    --gold-dark: #d99e00;
+    --muted: #707991;
+    --light: #f6f7fb;
+    --white: #fff;
+    --border: #e8eaf2;
+    --shadow: 0 20px 60px rgba(17, 22, 47, .08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--navy);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    width: min(1160px, 90%);
+    margin: auto;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold-dark);
+    margin-bottom: 18px;
+}
+
+.section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(34px, 4vw, 51px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -1.8px;
+    margin-bottom: 22px;
+}
+
+.section-text {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.95;
+}
+
+.center-heading {
+    text-align: center;
+    max-width: 690px;
+    margin: 0 auto 48px;
+}
+
+.center-heading .section-text {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 82px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, .95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(17, 22, 47, .05);
+    transition: box-shadow .3s;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 8px 35px rgba(17, 22, 47, .09);
+}
+
+.logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    color: var(--gold-dark);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a:not(.nav-cta) {
+    font-size: 12px;
+    font-weight: 800;
+    transition: color .3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold-dark);
+}
+
+.nav-cta {
+    padding: 13px 20px;
+    background: var(--navy);
+    color: white;
+    border-radius: 11px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.nav-cta:hover {
+    background: var(--navy-light);
+    transform: translateY(-2px);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 27px;
+    color: var(--navy);
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 95px 0 110px;
+    background:
+        radial-gradient(circle at 80% 15%, #ffeeb4 0, transparent 27%),
+        linear-gradient(135deg, #f7f8fc 0%, #fffaf0 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(255, 201, 40, .10);
+    left: -180px;
+    bottom: -200px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(44px, 5.4vw, 70px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin-bottom: 26px;
+}
+
+.hero h1 span {
+    color: #dca600;
+    position: relative;
+}
+
+.hero-description {
+    max-width: 510px;
+    color: var(--muted);
+    line-height: 1.95;
+    font-size: 15px;
+    margin-bottom: 32px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 800;
+    border: 1px solid transparent;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--navy);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    border-color: #e0e3ec;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(17, 22, 47, .13);
+}
+
+.hero-visual {
+    min-height: 430px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.hero-photo {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 30px 70px rgba(17, 22, 47, .16);
+    animation: photoFloat 6s ease-in-out infinite;
+}
+
+.photo-badge {
+    position: absolute;
+    padding: 17px 20px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: var(--shadow);
+    animation: badgeFloat 4s ease-in-out infinite;
+}
+
+.photo-badge strong {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 19px;
+    margin-bottom: 4px;
+}
+
+.photo-badge small {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.badge-top {
+    left: -25px;
+    top: 25px;
+}
+
+.badge-bottom {
+    right: -22px;
+    bottom: 25px;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+/* STATS */
+
+.stats {
+    padding: 40px 0;
+    background: var(--navy);
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.stat {
+    text-align: center;
+    padding: 18px 12px;
+    border-right: 1px solid rgba(255, 255, 255, .14);
+}
+
+.stat:last-child {
+    border-right: 0;
+}
+
+.stat h2 {
+    color: var(--gold);
+    font-family: 'Outfit', sans-serif;
+    font-size: 38px;
+    margin-bottom: 6px;
+}
+
+.stat p {
+    font-size: 12px;
+    color: #d0d5e6;
+}
+
+/* STORY */
+
+.story-grid {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: 75px;
+    align-items: center;
+}
+
+.story-visual {
+    position: relative;
+}
+
+.story-photo {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.story-caption {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    padding: 19px;
+    background: rgba(255, 255, 255, .96);
+    border-radius: 15px;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+}
+
+.story-caption span {
+    display: block;
+    color: var(--gold-dark);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+.story-copy .section-text + .section-text {
+    margin-top: 15px;
+}
+
+.story-points {
+    margin-top: 28px;
+    display: grid;
+    gap: 19px;
+}
+
+.story-point {
+    display: flex;
+    gap: 15px;
+}
+
+.point-icon {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: #fff2c7;
+    font-size: 18px;
+}
+
+.story-point h4 {
+    font-size: 15px;
+    margin: 1px 0 5px;
+}
+
+.story-point p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* MISSION */
+
+.mission-section {
+    background: var(--light);
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.mission-card {
+    position: relative;
+    padding: 34px 30px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    overflow: hidden;
+    transition: transform .35s, box-shadow .35s;
+}
+
+.mission-card::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #fff7db;
+    border-radius: 50%;
+    right: -40px;
+    top: -40px;
+    transition: transform .35s;
+}
+
+.mission-card:hover {
+    transform: translateY(-9px);
+    box-shadow: var(--shadow);
+}
+
+.mission-card:hover::after {
+    transform: scale(1.7);
+}
+
+.mission-icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 17px;
+    background: #fff2c7;
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.mission-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 23px;
+    margin-bottom: 14px;
+}
+
+.mission-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.95;
+}
+
+/* VALUES */
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 42px;
+}
+
+.value-card {
+    padding: 25px 21px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    transition: .3s;
+}
+
+.value-card:hover {
+    border-color: var(--gold);
+    background: #fffaf0;
+    transform: translateY(-5px);
+}
+
+.value-icon {
+    font-size: 27px;
+    margin-bottom: 17px;
+}
+
+.value-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* EXPERIENCE */
+
+.experience-section {
+    background: #fff9e9;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.experience-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.experience-card {
+    background: white;
+    padding: 25px 21px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(17, 22, 47, .04);
+    transition: .3s;
+}
+
+.experience-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.experience-card .emoji {
+    font-size: 27px;
+}
+
+.experience-card h3 {
+    font-family: 'Outfit', sans-serif;
+    margin: 15px 0 8px;
+    font-size: 18px;
+}
+
+.experience-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* CTA */
+
+.cta-section {
+    padding: 90px 0;
+}
+
+.cta-box {
+    padding: 70px 30px;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    background:
+        radial-gradient(circle at 90% 0%, #ffffff14, transparent 25%),
+        var(--navy);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-box h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(32px, 4vw, 47px);
+    letter-spacing: -1.4px;
+    margin-bottom: 17px;
+}
+
+.cta-box p {
+    color: #d2d7e8;
+    max-width: 610px;
+    margin: 0 auto 28px;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.cta-box .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* FAQ */
+
+.faq-section {
+    background: var(--light);
+}
+
+.faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    text-align: left;
+    background: white;
+    border: 0;
+    padding: 22px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.faq-question span {
+    font-size: 24px;
+    font-weight: 400;
+    transition: transform .3s;
+}
+
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .3s ease;
+}
+
+.faq-answer-inner {
+    overflow: hidden;
+}
+
+.faq-answer p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    padding: 0 24px 22px;
+}
+
+.faq-item.active .faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.faq-item.active .faq-question span {
+    transform: rotate(45deg);
+}
+
+/* FOOTER */
+
+.footer {
+    background: #0b1024;
+    color: white;
+    padding: 55px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 45px;
+    padding-bottom: 38px;
+}
+
+.footer .logo {
+    display: inline-block;
+    margin-bottom: 17px;
+}
+
+.footer-description {
+    color: #bbc2d7;
+    max-width: 350px;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.footer h4 {
+    margin-bottom: 19px;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: grid;
+    gap: 14px;
+}
+
+.footer-links a {
+    color: #bbc2d7;
+    font-size: 12px;
+    transition: color .25s;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid #ffffff1a;
+    padding-top: 22px;
+    text-align: center;
+    color: #bbc2d7;
+    font-size: 11px;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .75s ease, transform .75s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes photoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+    .hero-grid,
+    .story-grid,
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .hero-copy {
+        max-width: 680px;
+    }
+
+    .hero-visual {
+        max-width: 650px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .story-photo {
+        height: 380px;
+    }
+
+    .mission-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+}
+
+@media (max-width: 650px) {
+    section {
+        padding: 70px 0;
+    }
+
+    .navbar {
+        height: 72px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 29px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 72px;
+        width: 100%;
+        padding: 24px 6%;
+        background: white;
+        box-shadow: 0 18px 25px #11162f12;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a:not(.nav-cta) {
+        padding: 5px 0;
+    }
+
+    .nav-cta {
+        text-align: center;
+    }
+
+    .hero {
+        padding: 65px 0 80px;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-visual {
+        min-height: 310px;
+    }
+
+    .hero-photo {
+        height: 310px;
+        border-radius: 23px;
+    }
+
+    .photo-badge {
+        padding: 13px;
+    }
+
+    .photo-badge strong {
+        font-size: 15px;
+    }
+
+    .badge-top {
+        left: -7px;
+        top: 10px;
+    }
+
+    .badge-bottom {
+        right: -7px;
+        bottom: 10px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat:nth-child(2) {
+        border-right: 0;
+    }
+
+    .stat h2 {
+        font-size: 32px;
+    }
+
+    .story-photo {
+        height: 330px;
+    }
+
+    .mission-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-cards {
+        gap: 12px;
+    }
+
+    .experience-card {
+        padding: 19px 15px;
+    }
+
+    .cta-box {
+        padding: 50px 20px;
+        border-radius: 22px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="navbar" id="navbar">
+    <a href="index.html" class="logo">Go<span>Trip.</span></a>
+
+    <button class="menu-btn" id="menuBtn"
+            aria-label="Toggle navigation"
+            aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">HOME</a>
+        <a href="index.html#tours">TOURS</a>
+        <a href="#story">ABOUT US</a>
+        <a href="#mission">OUR MISSION</a>
+        <a href="#faq">FAQ</a>
+        <a href="index.html#contact" class="nav-cta">CONTACT US ↗</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container hero-grid">
+
+        <div class="hero-copy reveal">
+            <span class="eyebrow">WELCOME TO GO TRIP</span>
+
+            <h1>
+                Discover the world.<br>
+                Create <span>memories.</span>
+            </h1>
+
+            <p class="hero-description">
+                Every destination has a story, every journey brings a new
+                experience. Go Trip is designed to inspire you to explore
+                beautiful places and discover your next adventure.
+            </p>
+
+            <div class="hero-actions">
+                <a href="index.html#tours" class="btn btn-primary">
+                    Explore Destinations ↗
+                </a>
+
+                <a href="#story" class="btn btn-secondary">
+                    Our Story ↓
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-visual reveal">
+            <img
+                class="hero-photo"
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85"
+                alt="Beautiful mountain travel destination">
+
+            <div class="photo-badge badge-top">
+                <strong>🌍 Explore More</strong>
+                <small>Your next story awaits</small>
+            </div>
+
+            <div class="photo-badge badge-bottom">
+                <strong>✈️ Travel Your Way</strong>
+                <small>Discover something new</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hero-scroll">SCROLL TO EXPLORE ↓</div>
+</section>
+
+<!-- STATISTICS -->
+<!-- These are illustrative website figures, not verified company metrics. -->
+<section class="stats">
+    <div class="container stats-grid">
+
+        <div class="stat reveal">
+            <h2 data-count="12" data-suffix="+">0</h2>
+            <p>Featured Destinations</p>
+        </div>
+
+        <div class="stat reveal">
+            <h2 data-count="4" data-suffix="">0</h2>
+            <p>Travel Categories</p>
+        </div>
+
+        <div class="stat reveal">
+            <h2 data-count="100" data-suffix="%">0</h2>
+            <p>Passion for Travel</p>
+        </div>
+
+        <div class="stat reveal">
+            <h2 data-count="24" data-suffix="/7">0</h2>
+            <p>Travel Inspiration</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT OUR COMPANY -->
+<section id="story">
+    <div class="container story-grid">
+
+        <div class="story-visual reveal">
+            <img
+                class="story-photo"
+                src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1100&q=85"
+                alt="Beautiful lake and mountains">
+
+            <div class="story-caption">
+                <span>THE GO TRIP PHILOSOPHY</span>
+                Travel thoughtfully. Explore freely.
+            </div>
+        </div>
+
+        <div class="story-copy reveal">
+            <span class="eyebrow">WHO WE ARE</span>
+
+            <h2 class="section-title">
+                More than a destination. A world of possibilities.
+            </h2>
+
+            <p class="section-text">
+                Go Trip is a travel discovery platform created to make
+                exploring destinations simpler, more enjoyable and inspiring.
+                We bring travel ideas and destination information together
+                so travellers can start imagining their next journey.
+            </p>
+
+            <p class="section-text">
+                From quiet mountain escapes to vibrant cities, we believe
+                every place has something worth discovering. Our aim is to
+                help you find those places and make planning your next
+                adventure a more convenient experience.
+            </p>
+
+            <div class="story-points">
+
+                <div class="story-point">
+                    <div class="point-icon">🧭</div>
+                    <div>
+                        <h4>Discover with Ease</h4>
+                        <p>
+                            Browse travel destinations and find ideas for
+                            your next getaway.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="story-point">
+                    <div class="point-icon">💛</div>
+                    <div>
+                        <h4>Traveller First</h4>
+                        <p>
+                            A simple, welcoming experience designed around
+                            discovering places.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="story-point">
+                    <div class="point-icon">🌄</div>
+                    <div>
+                        <h4>Experiences That Inspire</h4>
+                        <p>
+                            Find inspiration to explore different landscapes,
+                            cultures and experiences.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- MISSION, VISION, PROMISE -->
+<section class="mission-section" id="mission">
+    <div class="container">
+
+        <div class="center-heading reveal">
+            <span class="eyebrow">OUR PURPOSE</span>
+            <h2 class="section-title">What makes Go Trip different?</h2>
+            <p class="section-text">
+                Our purpose is to make travel discovery feel approachable
+                and help people find inspiration for meaningful journeys.
+            </p>
+        </div>
+
+        <div class="mission-grid">
+
+            <article class="mission-card reveal">
+                <div class="mission-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>
+                    To make exploring destinations easier by offering a
+                    user-friendly platform where travellers can discover
+                    places and travel ideas.
+                </p>
+            </article>
+
+            <article class="mission-card reveal">
+                <div class="mission-icon">🌍</div>
+                <h3>Our Vision</h3>
+                <p>
+                    To grow into a trusted starting point for people who
+                    want to explore new destinations and plan memorable
+                    travel experiences.
+                </p>
+            </article>
+
+            <article class="mission-card reveal">
+                <div class="mission-icon">🤝</div>
+                <h3>Our Promise</h3>
+                <p>
+                    To keep improving the experience with clear information,
+                    thoughtful design and features that put travellers first.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- CORE VALUES -->
+<section id="values">
+    <div class="container">
+
+        <div class="reveal">
+            <span class="eyebrow">WHAT WE BELIEVE IN</span>
+            <h2 class="section-title">Our values guide our journey.</h2>
+            <p class="section-text">
+                The principles that shape the Go Trip experience.
+            </p>
+        </div>
+
+        <div class="values-grid">
+
+            <article class="value-card reveal">
+                <div class="value-icon">🤝</div>
+                <h3>Trust & Transparency</h3>
+                <p>
+                    Clear information and honest expectations help travellers
+                    make informed decisions.
+                </p>
+            </article>
+
+            <article class="value-card reveal">
+                <div class="value-icon">✨</div>
+                <h3>Simplicity</h3>
+                <p>
+                    We aim to keep browsing and discovering destinations
+                    straightforward and convenient.
+                </p>
+            </article>
+
+            <article class="value-card reveal">
+                <div class="value-icon">🧭</div>
+                <h3>Curiosity</h3>
+                <p>
+                    We encourage people to look beyond familiar places and
+                    discover something new.
+                </p>
+            </article>
+
+            <article class="value-card reveal">
+                <div class="value-icon">🌱</div>
+                <h3>Responsibility</h3>
+                <p>
+                    We believe in respecting local cultures, communities
+                    and the places we visit.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- TRAVEL CATEGORIES -->
+<section class="experience-section">
+    <div class="container experience-grid">
+
+        <div class="reveal">
+            <span class="eyebrow">FIND YOUR KIND OF JOURNEY</span>
+
+            <h2 class="section-title">
+                There is a destination for every dream.
+            </h2>
+
+            <p class="section-text">
+                Whether you are looking for peaceful landscapes, cultural
+                experiences or an exciting adventure, let your curiosity
+                lead the way. Start with an idea and discover where it takes you.
+            </p>
+
+            <a href="index.html#tours"
+               class="btn btn-primary"
+               style="margin-top:26px">
+                Explore Tours ↗
+            </a>
+        </div>
+
+        <div class="experience-cards">
+
+            <article class="experience-card reveal">
+                <div class="emoji">🏔️</div>
+                <h3>Nature Escapes</h3>
+                <p>
+                    Discover mountains, lakes, forests and peaceful landscapes.
+                </p>
+            </article>
+
+            <article class="experience-card reveal">
+                <div class="emoji">🏛️</div>
+                <h3>Culture & Heritage</h3>
+                <p>
+                    Explore historic places, architecture and local traditions.
+                </p>
+            </article>
+
+            <article class="experience-card reveal">
+                <div class="emoji">🏖️</div>
+                <h3>Relaxing Getaways</h3>
+                <p>
+                    Find inspiration for a refreshing break from everyday life.
+                </p>
+            </article>
+
+            <article class="experience-card reveal">
+                <div class="emoji">🎒</div>
+                <h3>Adventure Trips</h3>
+                <p>
+                    Step outside your routine and discover new experiences.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="cta-section">
+    <div class="container">
+
+        <div class="cta-box reveal">
+            <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+
+            <h2>The world is waiting to be explored.</h2>
+
+            <p>
+                Every great journey begins with a single idea.
+                Discover a destination, explore the possibilities and
+                start imagining your next travel story with Go Trip.
+            </p>
+
+            <a href="index.html#tours" class="btn btn-primary">
+                Find Your Next Destination ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+    <div class="container">
+
+        <div class="center-heading reveal">
+            <span class="eyebrow">NEED MORE INFORMATION?</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-text">
+                A few helpful answers about the Go Trip platform.
+            </p>
+        </div>
+
+        <div class="faq-list reveal">
+
+            <article class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    What is Go Trip?
+                    <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>
+                            Go Trip is a travel discovery platform that helps
+                            users browse destinations and find inspiration
+                            for their next trip.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How can I explore destinations?
+                    <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>
+                            Visit the Tours section on the main website to
+                            browse available destinations and view more
+                            information about individual tours.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How can I contact Go Trip?
+                    <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>
+                            Open the Contact section on the main website
+                            and submit your message through the enquiry form.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Can I use Go Trip on my mobile?
+                    <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>
+                            This page is designed to adapt to mobile phones,
+                            tablets and desktop screens.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Where can I find official company details?
+                    <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>
+                            Verified business registration, company address,
+                            support contact details and policies should be
+                            published once those details are confirmed.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <a href="index.html" class="logo">Go<span>Trip.</span></a>
+
+                <p class="footer-description">
+                    Discover places, explore possibilities and find
+                    inspiration for your next journey with Go Trip.
+                </p>
+            </div>
+
+            <div>
+                <h4>Explore</h4>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#tours">Tours & Destinations</a>
+                    <a href="#story">About Company</a>
+                    <a href="#mission">Our Mission</a>
+                </div>
+            </div>
+
+            <div>
+                <h4>Support</h4>
+                <div class="footer-links">
+                    <a href="index.html#contact">Contact Us</a>
+                    <a href="#faq">FAQs</a>
+                    <a href="index.html">Go Trip Website</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © <span id="currentYear"></span> Go Trip. All rights reserved.
+        </div>
+
+    </div>
+</footer>
+
+<script>
+// NAVBAR SHADOW ON SCROLL
+const navbar = document.getElementById("navbar");
+
+function updateNavbar() {
+    navbar.classList.toggle("scrolled", window.scrollY > 20);
+}
+
+window.addEventListener("scroll", updateNavbar, { passive: true });
+updateNavbar();
+
+// MOBILE NAVIGATION
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.textContent = open ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+    });
+});
+
+// REVEAL SECTIONS WHEN SCROLLING
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12
+    });
+
+    revealElements.forEach(element => revealObserver.observe(element));
+} else {
+    revealElements.forEach(element => element.classList.add("visible"));
+}
+
+// ANIMATED STATISTICS
+const statsSection = document.querySelector(".stats");
+let statsAnimated = false;
+
+const statsObserver = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting || statsAnimated) return;
+
+    statsAnimated = true;
+
+    document.querySelectorAll("[data-count]").forEach(counter => {
+        const target = Number(counter.dataset.count);
+        const suffix = counter.dataset.suffix || "";
+        const duration = 1300;
+        const startTime = performance.now();
+
+        function animate(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+
+            counter.textContent = Math.floor(target * eased) + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        }
+
+        requestAnimationFrame(animate);
+    });
+}, {
+    threshold: 0.35
+});
+
+statsObserver.observe(statsSection);
+
+// FAQ ACCORDION
+document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const currentItem = button.closest(".faq-item");
+        const shouldOpen = !currentItem.classList.contains("active");
+
+        document.querySelectorAll(".faq-item").forEach(item => {
+            item.classList.remove("active");
+            item.querySelector(".faq-question")
+                .setAttribute("aria-expanded", "false");
+        });
+
+        if (shouldOpen) {
+            currentItem.classList.add("active");
+            button.setAttribute("aria-expanded", "true");
+        }
+    });
+});
+
+// AUTOMATIC COPYRIGHT YEAR
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>

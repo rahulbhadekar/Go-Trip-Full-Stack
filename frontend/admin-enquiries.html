@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Enquiries | Go Trip Admin</title>
+
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin-enquiries.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="admin-brand">
+            ✈️ Go Trip <span>ADMIN</span>
+        </div>
+
+        <div class="admin-header-actions">
+            <button type="button"
+                    onclick="window.location.href='admin.html'">
+                Dashboard
+            </button>
+
+            <button type="button" id="logoutBtn">
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <main class="enquiries-page">
+
+        <section class="enquiries-heading">
+            <span class="eyebrow">CUSTOMER SUPPORT</span>
+            <h1>Manage Enquiries</h1>
+            <p>View customer messages and manage contact requests.</p>
+        </section>
+
+        <section class="enquiries-stats">
+            <div class="enquiry-stat-card">
+                <span>Total Enquiries</span>
+                <strong id="totalEnquiries">0</strong>
+            </div>
+
+            <div class="enquiry-stat-card">
+                <span>New Enquiries</span>
+                <strong id="newEnquiries">0</strong>
+            </div>
+
+            <div class="enquiry-stat-card">
+                <span>Resolved</span>
+                <strong id="resolvedEnquiries">0</strong>
+            </div>
+        </section>
+
+        <section class="enquiries-list-section">
+            <div class="enquiries-toolbar">
+                <h2>Customer Messages</h2>
+
+                <select id="statusFilter">
+                    <option value="ALL">All Enquiries</option>
+                    <option value="NEW">New</option>
+                    <option value="IN_PROGRESS">In Progress</option>
+                    <option value="RESOLVED">Resolved</option>
+                </select>
+            </div>
+
+            <div id="enquiriesContainer">
+                <p>Loading enquiries...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="admin-enquiries.js"></script>
+</body>
+</html>

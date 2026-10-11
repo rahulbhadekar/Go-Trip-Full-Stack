@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | Go Trip</title>
+
+    <link rel="stylesheet"
+        href="profile.css">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+
+         <style>
+
+/* =================================================
+   PREMIUM MY BOOKINGS
+================================================= */
+
+.bookings-card {
+    margin-top: 24px;
+    scroll-margin-top: 30px;
+}
+
+.my-bookings-container {
+    display: grid;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.booking-loading {
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #6b7280;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.78),
+        rgba(248,250,255,.68)
+    );
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 18px;
+}
+
+.booking-loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(30,41,59,.14);
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: bookingSpin .8s linear infinite;
+}
+
+@keyframes bookingSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.booking-item {
+    padding: 22px;
+    border-radius: 20px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.88),
+        rgba(248,250,255,.72)
+    );
+    border: 1px solid rgba(255,255,255,.95);
+    box-shadow: 0 14px 35px rgba(16,21,47,.08);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.booking-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 45px rgba(16,21,47,.12);
+}
+
+.booking-item-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(16,21,47,.08);
+}
+
+.booking-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #7b8195;
+}
+
+.booking-tour h3 {
+    margin: 0;
+    color: #171b35;
+    font-size: 20px;
+}
+
+.booking-status {
+    flex-shrink: 0;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    background: #fff4d6;
+    color: #8a6100;
+}
+
+.booking-status.confirmed,
+.booking-status.completed {
+    background: #e6f8ed;
+    color: #19733d;
+}
+
+.booking-status.cancelled,
+.booking-status.canceled {
+    background: #fde8e8;
+    color: #a52828;
+}
+
+.booking-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.booking-info {
+    padding: 13px 14px;
+    border-radius: 14px;
+    background: rgba(246,247,251,.82);
+}
+
+.booking-info span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    color: #7b8195;
+}
+
+.booking-info strong {
+    color: #171b35;
+    font-size: 14px;
+}
+
+.booking-total {
+    background: rgba(233,239,255,.8);
+}
+
+.booking-total strong {
+    font-size: 16px;
+}
+
+.no-bookings,
+.booking-error {
+    padding: 36px 24px;
+    text-align: center;
+    border-radius: 20px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.86),
+        rgba(248,250,255,.72)
+    );
+    border: 1px solid rgba(255,255,255,.9);
+}
+
+.no-bookings-icon,
+.booking-error-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.no-bookings h3,
+.booking-error h3 {
+    margin: 0 0 7px;
+    color: #171b35;
+}
+
+.no-bookings p,
+.booking-error p {
+    margin: 0 auto 18px;
+    max-width: 480px;
+    color: #73798c;
+}
+
+.booking-explore-btn,
+.booking-error button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 12px;
+    background: #171b35;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+
+    .booking-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 560px) {
+
+    .booking-item {
+        padding: 17px;
+    }
+
+    .booking-item-top {
+        flex-direction: column;
+    }
+
+    .booking-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="profile-navbar">
+
+        <a href="index.html"
+            class="brand">
+
+            Go Trip
+
+        </a>
+
+
+        <a href="index.html"
+            class="back-home">
+
+            ← Back to Home
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PROFILE HERO
+    ====================================================== -->
+
+    <main class="profile-page">
+
+        <section class="profile-hero">
+
+            <div class="profile-avatar-large"
+                id="profileAvatar">
+
+                R
+
+            </div>
+
+
+            <div class="profile-hero-content">
+
+                <span class="profile-label">
+                    GO TRIP ACCOUNT
+                </span>
+
+                <h1 id="profileName">
+                    Rahul Test
+                </h1>
+
+                <p id="profileEmail">
+                    rahultest@gmail.com
+                </p>
+
+
+                <span class="user-badge"
+                    id="profileRole">
+
+                    USER
+
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROFILE CONTENT
+        ================================================== -->
+
+        <section class="profile-content">
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <div class="profile-card">
+
+                <div class="card-heading">
+
+                    <div class="heading-icon">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Personal Information
+                        </h2>
+
+                        <p>
+                            Your account details
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-info-grid">
+
+
+                    <div class="info-item">
+
+                        <span>
+                            Full Name
+                        </span>
+
+                        <strong id="infoName">
+                            Rahul Test
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>
+                            Email Address
+                        </span>
+
+                        <strong id="infoEmail">
+                            rahultest@gmail.com
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>
+                            Account Role
+                        </span>
+
+                        <strong id="infoRole">
+                            USER
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>
+                            Account Status
+                        </span>
+
+                        <strong class="active-status">
+
+                            ● Active
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
+
+            <div class="profile-card">
+
+                <div class="card-heading">
+
+                    <div class="heading-icon">
+                        ✈️
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Your Travel
+                        </h2>
+
+                        <p>
+                            Manage your Go Trip activities
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <a href="#"
+                        class="action-card"
+                        id="myBookingsLink">
+
+                        <div class="action-icon">
+                            📋
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                My Bookings
+                            </h3>
+
+                            <p>
+                                View your upcoming and past trips
+                            </p>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a href="index.html#tours"
+                        class="action-card">
+
+                        <div class="action-icon">
+                            🗺️
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Explore Tours
+                            </h3>
+
+                            <p>
+                                Discover your next Indian adventure
+                            </p>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <!-- =================================================
+     MY BOOKINGS
+================================================== -->
+
+<section class="profile-card bookings-card" id="myBookingsSection">
+
+    <div class="card-heading">
+
+        <div class="heading-icon">🧳</div>
+
+        <div>
+            <h2>My Bookings</h2>
+            <p>Your confirmed and upcoming Go Trip journeys</p>
+        </div>
+
+    </div>
+
+    <div id="myBookingsContainer" class="my-bookings-container">
+
+        <div class="booking-loading">
+            <div class="booking-loader"></div>
+            <span>Loading your bookings...</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+            <!-- =================================================
+                 LOGOUT
+            ================================================== -->
+
+            <div class="profile-logout-card">
+
+                <div>
+
+                    <h3>
+                        Ready to leave?
+                    </h3>
+
+                    <p>
+                        You can safely logout from your
+                        Go Trip account.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="logoutProfileBtn">
+
+                    🚪 Logout
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="profile-footer">
+
+        <p>
+            © 2026 Go Trip. Explore India, your way.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =================================================
+           GET USER FROM LOCAL STORAGE
+        ================================================= */
+
+        const userData =
+            localStorage.getItem("goTripUser");
+
+
+        if (!userData) {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        let user = null;
+
+
+        try {
+
+            user = JSON.parse(userData);
+
+        } catch (error) {
+
+            console.error(
+                "Invalid user data:",
+                error
+            );
+
+            localStorage.removeItem(
+                "goTripUser"
+            );
+
+            localStorage.removeItem(
+                "goTripToken"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        /* =================================================
+           DISPLAY USER DATA
+        ================================================= */
+
+        if (user) {
+
+            const name =
+                user.name || "Go Trip User";
+
+            const email =
+                user.email || "";
+
+            const role =
+                user.role || "USER";
+
+
+            document.getElementById(
+                "profileName"
+            ).textContent = name;
+
+
+            document.getElementById(
+                "profileEmail"
+            ).textContent = email;
+
+
+            document.getElementById(
+                "profileRole"
+            ).textContent = role;
+
+
+            document.getElementById(
+                "infoName"
+            ).textContent = name;
+
+
+            document.getElementById(
+                "infoEmail"
+            ).textContent = email;
+
+
+            document.getElementById(
+                "infoRole"
+            ).textContent = role;
+
+
+            document.getElementById(
+                "profileAvatar"
+            ).textContent =
+                name.charAt(0).toUpperCase();
+
+        }
+
+
+
+        /* =================================================
+           LOGOUT
+        ================================================= */
+
+        document
+    .getElementById("myBookingsLink")
+    .addEventListener(
+        "click",
+        event => {
+
+            event.preventDefault();
+
+            window.location.href = "my-bookings.html";
+
+        }
+    );
+
+
+        /* =================================================
+           MY BOOKINGS
+        ================================================= */
+
+       
+
+
+             /* =================================================
+   MY BOOKINGS - LOAD FROM SPRING BOOT
+================================================= */
+
+const myBookingsLink = document.getElementById("myBookingsLink");
+
+const myBookingsSection =
+    document.getElementById("myBookingsSection");
+
+const myBookingsContainer =
+    document.getElementById("myBookingsContainer");
+
+
+async function loadMyBookings() {
+
+    if (!user || !user.email || !myBookingsContainer) {
+        return;
+    }
+
+    const token =
+        localStorage.getItem("goTripToken");
+
+    myBookingsContainer.innerHTML = `
+        <div class="booking-loading">
+            <div class="booking-loader"></div>
+            <span>Loading your bookings...</span>
+        </div>
+    `;
+
+    try {
+
+        const response = await fetch(
+            `http://localhost:8080/api/bookings/email/${encodeURIComponent(user.email)}`,
+            {
+                method: "GET",
+
+                headers: {
+                    "Content-Type": "application/json",
+
+                    ...(token ? {
+                        "Authorization": `Bearer ${token}`
+                    } : {})
+                }
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Could not load bookings.");
+        }
+
+        const bookings = await response.json();
+
+
+        if (!bookings || bookings.length === 0) {
+
+            myBookingsContainer.innerHTML = `
+
+                <div class="no-bookings">
+
+                    <div class="no-bookings-icon">
+                        ✈️
+                    </div>
+
+                    <h3>No bookings yet</h3>
+
+                    <p>
+                        You haven't booked a trip yet.
+                        Your next adventure is waiting.
+                    </p>
+
+                    <a
+                        href="index.html#tours"
+                        class="booking-explore-btn"
+                    >
+                        Explore Tours →
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        myBookingsContainer.innerHTML =
+            bookings.map(booking => {
+
+                const amount =
+                    Number(
+                        booking.totalAmount || 0
+                    ).toLocaleString("en-IN");
+
+                const price =
+                    Number(
+                        booking.pricePerPerson || 0
+                    ).toLocaleString("en-IN");
+
+                const status =
+                    booking.status || "PENDING";
+
+
+                return `
+
+                    <article class="booking-item">
+
+                        <div class="booking-item-top">
+
+                            <div class="booking-tour">
+
+                                <span class="booking-label">
+                                    TRIP
+                                </span>
+
+                                <h3>
+                                    ${escapeHtml(
+                                        booking.tourName ||
+                                        "Go Trip Tour"
+                                    )}
+                                </h3>
+
+                            </div>
+
+
+                            <span
+                                class="booking-status ${status.toLowerCase()}"
+                            >
+                                ${escapeHtml(status)}
+                            </span>
+
+                        </div>
+
+
+                        <div class="booking-info-grid">
+
+                            <div class="booking-info">
+
+                                <span>
+                                    Booking ID
+                                </span>
+
+                                <strong>
+                                    #${booking.id}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="booking-info">
+
+                                <span>
+                                    Travel Date
+                                </span>
+
+                                <strong>
+                                    ${formatDate(
+                                        booking.travelDate
+                                    )}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="booking-info">
+
+                                <span>
+                                    Travellers
+                                </span>
+
+                                <strong>
+                                    ${booking.travellers || 1}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="booking-info">
+
+                                <span>
+                                    Price / Person
+                                </span>
+
+                                <strong>
+                                    ₹${price}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="booking-info booking-total">
+
+                                <span>
+                                    Total Amount
+                                </span>
+
+                                <strong>
+                                    ₹${amount}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                `;
+
+            }).join("");
+
+
+    } catch (error) {
+
+        console.error(
+            "My Bookings Error:",
+            error
+        );
+
+        myBookingsContainer.innerHTML = `
+
+            <div class="booking-error">
+
+                <div class="booking-error-icon">
+                    ⚠️
+                </div>
+
+                <h3>
+                    Unable to load bookings
+                </h3>
+
+                <p>
+                    Please make sure the Spring Boot
+                    backend is running.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="loadMyBookings()"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+        `;
+    }
+}
+
+
+/* FORMAT DATE */
+
+function formatDate(dateString) {
+
+    if (!dateString) {
+        return "Not specified";
+    }
+
+    const date =
+        new Date(dateString + "T00:00:00");
+
+    if (Number.isNaN(date.getTime())) {
+        return dateString;
+    }
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+}
+
+
+/* SECURITY - ESCAPE HTML */
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/* MY BOOKINGS CLICK */
+
+if (myBookingsLink) {
+
+    myBookingsLink.addEventListener(
+        "click",
+        event => {
+
+            event.preventDefault();
+
+            if (myBookingsSection) {
+
+                myBookingsSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+            loadMyBookings();
+
+        }
+    );
+
+}
+
+
+/* LOAD BOOKINGS AUTOMATICALLY */
+
+loadMyBookings();
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Users - Go Trip Admin</title>
+
+    <link rel="stylesheet" href="admin-users.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="admin-navbar">
+
+        <div class="admin-brand">
+            <span>✈️</span>
+            <strong>Go Trip</strong>
+            <small>ADMIN</small>
+        </div>
+
+        <div class="admin-nav-actions">
+
+            <button
+                type="button"
+                onclick="window.location.href='admin.html'"
+                class="nav-btn">
+                Dashboard
+            </button>
+
+            <button
+                type="button"
+                id="adminUsersLogoutBtn"
+                class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="users-hero">
+
+        <div class="users-hero-content">
+
+            <span class="hero-badge">
+                USER MANAGEMENT
+            </span>
+
+            <h1>
+                Manage Users
+            </h1>
+
+            <p>
+                View and manage all registered Go Trip users
+                from one place.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="users-stats">
+
+        <div class="user-stat-card">
+
+            <div class="stat-icon">
+                👥
+            </div>
+
+            <div>
+                <span>Total Users</span>
+                <strong id="totalUsersCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <div class="user-stat-card">
+
+            <div class="stat-icon">
+                👤
+            </div>
+
+            <div>
+                <span>Normal Users</span>
+                <strong id="normalUsersCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <div class="user-stat-card">
+
+            <div class="stat-icon">
+                🛡️
+            </div>
+
+            <div>
+                <span>Admins</span>
+                <strong id="adminUsersCount">0</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- USER MANAGEMENT -->
+    <main class="users-main">
+
+        <div class="users-toolbar">
+
+            <div>
+
+                <span class="section-label">
+                    REGISTERED USERS
+                </span>
+
+                <h2>
+                    User Directory
+                </h2>
+
+            </div>
+
+
+            <div class="user-search-box">
+
+                <span>🔎</span>
+
+                <input
+                    type="search"
+                    id="userSearchInput"
+                    placeholder="Search by name, email or phone..."
+                    autocomplete="off">
+
+            </div>
+
+        </div>
+
+
+        <!-- USERS -->
+        <section
+            id="adminUsersContainer"
+            class="admin-users-container">
+
+            <div class="users-loading">
+                Loading users...
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="admin-users.js"></script>
+
+</body>
+
+</html>

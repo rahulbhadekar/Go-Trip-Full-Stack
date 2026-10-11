@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Bookings | Go Trip</title>
+
+    <link rel="stylesheet" href="admin-bookings.css">
+</head>
+
+<body class="admin-bookings-body">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="admin-bookings-navbar">
+
+        <div class="admin-bookings-brand">
+            <span class="admin-bookings-brand-name">
+                Go Trip
+            </span>
+
+            <span class="admin-bookings-badge">
+                ADMIN
+            </span>
+        </div>
+
+        <div class="admin-bookings-nav-actions">
+
+            <a
+                href="admin.html"
+                class="admin-bookings-back-btn">
+                ← Dashboard
+            </a>
+
+            <button
+                type="button"
+                class="admin-bookings-logout-btn"
+                id="adminBookingsLogoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="admin-bookings-main">
+
+        <!-- PAGE HEADER -->
+
+        <section class="admin-bookings-hero">
+
+            <div>
+
+                <span class="admin-bookings-eyebrow">
+                    BOOKING MANAGEMENT
+                </span>
+
+                <h1>
+                    Manage Bookings
+                </h1>
+
+                <p>
+                    View and manage all customer travel bookings.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section class="admin-booking-stats">
+
+            <div class="admin-booking-stat-card">
+
+                <span>
+                    Total Bookings
+                </span>
+
+                <strong id="bookingTotalCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="admin-booking-stat-card">
+
+                <span>
+                    Pending
+                </span>
+
+                <strong id="bookingPendingCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="admin-booking-stat-card">
+
+                <span>
+                    Cancelled
+                </span>
+
+                <strong id="bookingCancelledCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="admin-booking-stat-card">
+
+                <span>
+                    Revenue
+                </span>
+
+                <strong id="bookingRevenue">
+                    ₹0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FILTER ================= -->
+
+        <section class="admin-booking-list-section">
+
+            <div class="admin-booking-list-header">
+
+                <div>
+
+                    <span class="admin-bookings-eyebrow">
+                        CUSTOMER BOOKINGS
+                    </span>
+
+                    <h2>
+                        All Bookings
+                    </h2>
+
+                </div>
+
+
+                <div class="admin-booking-filter">
+
+                    <label for="bookingStatusFilter">
+                        Status
+                    </label>
+
+                    <select id="bookingStatusFilter">
+
+                        <option value="ALL">
+                            All Bookings
+                        </option>
+
+                        <option value="PENDING">
+                            Pending
+                        </option>
+
+                        <option value="CANCELLED">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BOOKINGS ================= -->
+
+            <div
+                id="adminBookingsContainer"
+                class="admin-bookings-container">
+
+                <div class="admin-booking-loading">
+                    Loading bookings...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= PASSENGER MODAL ================= -->
+
+    <div
+        class="admin-passenger-modal"
+        id="adminPassengerModal"
+        aria-hidden="true">
+
+        <div class="admin-passenger-modal-box">
+
+            <button
+                type="button"
+                class="admin-passenger-modal-close"
+                id="closePassengerModal">
+                ×
+            </button>
+
+            <span class="admin-bookings-eyebrow">
+                PASSENGER DETAILS
+            </span>
+
+            <h2>
+                Travellers
+            </h2>
+
+            <p
+                class="admin-passenger-booking-info"
+                id="passengerBookingInfo">
+                Booking details
+            </p>
+
+
+            <div
+                id="adminPassengersContainer"
+                class="admin-passengers-container">
+
+                Loading passenger details...
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="admin-bookings.js"></script>
+
+</body>
+
+</html>

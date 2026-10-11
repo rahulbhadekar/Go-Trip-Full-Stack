@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Ticket | Go Trip</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body class="ticket-body">
+
+
+    <main class="ticket-page">
+
+        <div class="ticket-container">
+
+
+            <!-- =================================================
+                 TICKET HEADER
+            ================================================== -->
+
+            <header class="ticket-header">
+
+                <div class="ticket-brand">
+
+                    <span class="ticket-brand-name">
+                        Go Trip
+                    </span>
+
+                    <span class="eyebrow">
+                        TRAVEL TICKET
+                    </span>
+
+                    <h1>
+                        Your Journey
+                    </h1>
+
+                    <p>
+                        Your confirmed trip details
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="ticket-status"
+                    id="ticketStatus">
+
+                    PENDING
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 TRIP INFORMATION
+            ================================================== -->
+
+            <section class="ticket-tour">
+
+                <div class="ticket-tour-label">
+
+                    <span class="eyebrow">
+                        YOUR TRIP
+                    </span>
+
+                    <span class="ticket-trip-icon">
+                        ✈️
+                    </span>
+
+                </div>
+
+
+                <h2 id="ticketTourName">
+                    Loading tour...
+                </h2>
+
+
+                <p
+                    id="ticketTravelDate"
+                    class="ticket-travel-date">
+
+                    Travel Date: -
+
+                </p>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 BOOKING SUMMARY
+            ================================================== -->
+
+            <section class="ticket-booking-info">
+
+
+                <div class="ticket-info-card">
+
+                    <span>
+                        Booking ID
+                    </span>
+
+                    <strong id="ticketBookingId">
+                        #-
+                    </strong>
+
+                </div>
+
+
+                <div class="ticket-info-card">
+
+                    <span>
+                        Travellers
+                    </span>
+
+                    <strong id="ticketTravellers">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="ticket-info-card">
+
+                    <span>
+                        Price / Person
+                    </span>
+
+                    <strong id="ticketPrice">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="ticket-info-card ticket-total-card">
+
+                    <span>
+                        Total Amount
+                    </span>
+
+                    <strong id="ticketTotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PASSENGERS
+            ================================================== -->
+
+            <section class="ticket-passengers">
+
+
+                <div class="ticket-section-title">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            PASSENGERS
+                        </span>
+
+                        <h3>
+                            Traveller Details
+                        </h3>
+
+                    </div>
+
+
+                    <span class="passenger-count-badge">
+
+                        <span id="ticketTravellersBadge">
+                            0
+                        </span>
+
+                        Travellers
+
+                    </span>
+
+                </div>
+
+
+                <div id="ticketPassengers">
+
+                    <div class="ticket-loading">
+
+                        <div class="ticket-spinner"></div>
+
+                        <p>
+                            Loading passenger details...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 GO TRIP MESSAGE
+            ================================================== -->
+
+            <section class="ticket-message">
+
+                <div class="ticket-message-icon">
+                    ✈️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Thank you for choosing Go Trip!
+                    </h3>
+
+                    <p>
+                        We wish you a safe, comfortable and
+                        memorable journey. Keep this ticket
+                        handy during your trip.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ACTIONS
+            ================================================== -->
+
+            <div class="ticket-actions">
+
+
+                <button
+                    type="button"
+                    onclick="window.print()"
+                    class="ticket-print-btn">
+
+                    🖨️
+                    Print Ticket
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="history.back()"
+                    class="ticket-back-btn">
+
+                    ←
+                    Back to My Bookings
+
+                </button>
+
+
+            </div>
+
+
+            <!-- Ticket footer -->
+
+            <div class="ticket-footer">
+
+                <span>
+                    Go Trip • Explore India
+                </span>
+
+                <span>
+                    Travel with confidence ✦
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

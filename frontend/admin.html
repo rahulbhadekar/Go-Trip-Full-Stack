@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Go Trip</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="admin-body">
+
+    <!-- ================= ADMIN NAVBAR ================= -->
+
+    <header class="admin-navbar">
+
+        <div class="admin-brand">
+            <span class="admin-brand-name">Go Trip</span>
+            <span class="admin-badge">ADMIN</span>
+        </div>
+
+        <div class="admin-nav-actions">
+
+            <a href="index.html" class="admin-home-btn">
+                ← Go to Website
+            </a>
+
+            <button type="button" class="admin-logout-btn" id="adminLogoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main class="admin-dashboard">
+
+        <section class="admin-hero">
+
+            <div>
+                <span class="eyebrow">GO TRIP MANAGEMENT</span>
+
+                <h1>
+                    Admin Dashboard
+                </h1>
+
+                <p>
+                    Manage tours, bookings and users from one place.
+                </p>
+            </div>
+
+            <div class="admin-welcome">
+                <span>Welcome back</span>
+                <strong id="adminName">Go Trip Admin</strong>
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="admin-stats">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+                    🗺️
+                </div>
+
+                <div>
+                    <span>Total Tours</span>
+                    <strong id="totalTours">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+                    🎫
+                </div>
+
+                <div>
+                    <span>Total Bookings</span>
+                    <strong id="totalBookings">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+                    👥
+                </div>
+
+                <div>
+                    <span>Total Users</span>
+                    <strong id="totalUsers">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+                    ❌
+                </div>
+
+                <div>
+                    <span>Cancelled</span>
+                    <strong id="cancelledBookings">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MANAGEMENT ================= -->
+
+        <section class="admin-management">
+
+            <div class="admin-section-heading">
+
+                <div>
+                    <span class="eyebrow">MANAGEMENT</span>
+
+                    <h2>
+                        Manage Go Trip
+                    </h2>
+
+                    <p>
+                        Quickly access different sections of your travel platform.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="admin-management-grid">
+
+                <!-- TOURS -->
+
+                <div class="admin-management-card">
+
+                    <div class="admin-management-icon">
+                        🗺️
+                    </div>
+
+                    <span class="eyebrow">
+                        TOURS
+                    </span>
+
+                    <h3>
+                        Manage Tours
+                    </h3>
+
+                    <p>
+                        Add new destinations, update tour details,
+                        change prices and remove tours.
+                    </p>
+
+                    <button
+    class="admin-management-btn"
+    onclick="window.location.href='admin-tours.html'">
+
+    Manage Tours
+
+</button>
+
+                </div>
+
+
+                <!-- BOOKINGS -->
+
+                <div class="admin-management-card">
+
+                    <div class="admin-management-icon">
+                        🎫
+                    </div>
+
+                    <span class="eyebrow">
+                        BOOKINGS
+                    </span>
+
+                    <h3>
+                        Manage Bookings
+                    </h3>
+
+                    <p>
+                        View customer bookings, travel dates,
+                        passengers and booking status.
+                    </p>
+
+                    <button
+    class="admin-management-btn"
+    onclick="window.location.href='admin-bookings.html'">
+
+    Manage Bookings
+
+</button>
+
+                </div>
+
+
+                <!-- USERS -->
+
+                <div class="admin-management-card">
+
+                    <div class="admin-management-icon">
+                        👥
+                    </div>
+
+                    <span class="eyebrow">
+                        USERS
+                    </span>
+
+                    <h3>
+                        Manage Users
+                    </h3>
+
+                    <p>
+                        View registered customers and
+                        manage Go Trip accounts.
+                    </p>
+
+                    <button
+    class="admin-management-btn"
+    onclick="window.location.href='admin-users.html'">
+
+    Manage Users
+
+</button>
+
+                </div>
+
+
+
+                <!-- ENQUIRIES -->
+<div class="admin-management-card">
+
+    <div class="admin-management-icon">
+        📩
+    </div>
+
+    <span class="eyebrow">
+        ENQUIRIES
+    </span>
+
+    <h3>
+        Manage Enquiries
+    </h3>
+
+    <p>
+        View customer messages and manage
+        contact requests.
+    </p>
+
+    <button
+        class="admin-management-btn"
+        onclick="window.location.href='admin-enquiries.html'">
+
+        Manage Enquiries
+
+    </button>
+
+</div>
+
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RECENT BOOKINGS ================= -->
+
+        <section class="admin-recent-section">
+
+            <div class="admin-section-heading">
+
+                <div>
+                    <span class="eyebrow">ACTIVITY</span>
+
+                    <h2>
+                        Recent Bookings
+                    </h2>
+
+                    <p>
+                        Latest customer booking activity.
+                    </p>
+                </div>
+
+            </div>
+
+            <div id="recentBookings" class="admin-recent-bookings">
+
+                <div class="admin-loading">
+                    Loading recent bookings...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
